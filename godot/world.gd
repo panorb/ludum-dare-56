@@ -34,6 +34,7 @@ var scenes : Dictionary = {
 		if next_scene_node is MainMenu:
 			var main_menu_node = next_scene_node as MainMenu
 			main_menu_node.start_game.connect(func(): self.current_scene = GAME_SCENE)
+			main_menu_node.change_language.connect(func(language: String): TranslationServer.set_locale(language) )
 		#elif next_scene_node is LoseScreen:
 		#	var lose_node = next_scene_node as LoseScreen
 		#	lose_node.show_main_menu.connect(_on_show_main_menu)
