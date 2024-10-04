@@ -1,0 +1,72 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  GODOT_VERSION: 4.3
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Download Godot (v${{ env.GODOT_VERSION }})
+        run: wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+
+      - name: Download Godot Templates (v${{ env.GODOT_VERSION }})
+        run: wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+
+      - name: Unpackage Template
+        run: |
+          unzip Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          cp templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Unpacke Godot
+        run: unzip Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+
+      - name: Create Godot export files
+        run: ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless --quit --editor ./godot/project.godot
+
+      - name: Export for Web
+        run: |
+          mkdir -p ./build/web/
+          ./Godot_v${GODOT_VERSION}-stable_linux.x86_64 --headless ./godot/project.godot --export-release "Web" ../build/web/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: ./build/web
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
