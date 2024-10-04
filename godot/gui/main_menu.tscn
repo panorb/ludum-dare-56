@@ -1,12 +1,108 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyslk1i7uwml2"]
+[gd_scene load_steps=2 format=3 uid="uid://d2pn0ww5aqdo5"]
 
-[ext_resource type="Script" path="res://gui/main_menu.gd" id="1_cq3xo"]
+[ext_resource type="Script" path="res://gui/main_menu.gd" id="1_ssco8"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
+[node name="AspectRatioContainer" type="AspectRatioContainer"]
+clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cq3xo")
+script = ExtResource("1_ssco8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_top = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "START_BUTTON"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CREDITS_BUTTON"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT_BUTTON"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SfxHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SfxSoundLabel" type="Label" parent="MarginContainer/VBoxContainer/SfxHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "SFX_SLIDER_LABEL"
+
+[node name="SfxSoundImage" type="TextureRect" parent="MarginContainer/VBoxContainer/SfxHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SfxSoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SfxHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+scrollable = false
+
+[node name="SfxSoundPercentLabel" type="Label" parent="MarginContainer/VBoxContainer/SfxHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 3.0
+
+[node name="MusicHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicSoundLabel" type="Label" parent="MarginContainer/VBoxContainer/MusicHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "MUSIC_SLIDER_LABEL"
+
+[node name="MusicSoundImage" type="TextureRect" parent="MarginContainer/VBoxContainer/MusicHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MusicSoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MusicHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+scrollable = false
+
+[node name="MusicSoundPercentLabel" type="Label" parent="MarginContainer/VBoxContainer/MusicHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 3.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "SELECT_LANGUAGE"
+
+[node name="SelectEnglishButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "English"
+
+[node name="SelectGermanButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Deutsch"
+
+[node name="MainMenuThemeSound" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="TestSoundPlayer" type="AudioStreamPlayer" parent="."]
