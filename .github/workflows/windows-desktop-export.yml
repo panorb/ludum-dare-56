@@ -5,7 +5,7 @@ env:
   GODOT_VERSION: 4.3
 
 jobs:
-  web-export:
+  windows-desktop-export:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
