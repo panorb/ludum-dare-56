@@ -13,3 +13,5 @@ CLICK_ANYWHERE_TO_CLOSE,"Click anywhere to close","Zum Schließen irgendwo klick
 SFX_SLIDER_LABEL,SFX,SFX
 MUSIC_SLIDER_LABEL,Music,Musik
 SELECT_LANGUAGE,"Select language","Sprache auswählen"
+LEVEL_CODE_LABEL,"Level Code","Level Code"
+LEVEL_CODE_BUTTON,"Einlösen", "Enter"
