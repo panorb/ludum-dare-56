@@ -22,12 +22,15 @@ theme_override_constants/h_separation = 10
 alignment = 1
 
 [node name="LevelCard1" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="LevelCard2" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LevelCard" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+[node name="LevelCard3" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+unique_name_in_owner = true
 modulate = Color(0.745098, 0.745098, 0.745098, 1)
 layout_mode = 2
 locked = true
