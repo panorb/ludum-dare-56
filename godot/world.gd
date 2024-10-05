@@ -12,10 +12,8 @@ const LANGUAGE_GERMAN := 'de'
 const SFX_SOUND_BUS := 'SFX'
 const MUSIC_SOUND_BUS := 'Music'
 
-const main_menu_scene := preload('res://gui/main_menu.tscn')
-
 var scenes : Dictionary = {
-	MAIN_MENU_SCENE: main_menu_scene,
+	MAIN_MENU_SCENE: preload('res://gui/main_menu.tscn'),
 	GAME_SCENE: preload('res://game/game.tscn'),
 	LEVEL_SCENE: preload('res://gui/level_menu/level_scene.tscn'),
 	LOSE_SCENE: null, #preload('res://gui/end_screen/lose/lose_screen.tscn'),
