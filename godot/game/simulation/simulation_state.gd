@@ -1,5 +1,5 @@
 class_name SimulationState
-extends RefCounted
+extends Node2D
 
 var items_now : Array # [[ Item ]]
 var entities_now : Array # [[ Entity ]]
@@ -14,21 +14,22 @@ func create(width, height, level, entities, items):
 	
 	# TODO: Adjust as necessary
 	var tilemap = level.get_node("TileMapLayer")
+	add_child(tilemap.duplicate())
 	
 	for entity in entities:
-		#print(int(entity.position[0] / 16), " ", int(entity.position[1] / 16))
-		entities_now[int(entity.position[1] / 16)][int(entity.position[0] / 16)] = entity
+		var cloned_entity = entity.duplicate()
+		entities_now[int(entity.position[1] / 16)][int(entity.position[0] / 16)] = cloned_entity
+		add_child(cloned_entity)
 	for item in items:
-		pass
+		var cloned_item = item.duplicate()
+		items_now[int(items.position[1] / 16)][int(items.position[0] / 16)] = cloned_item
+		add_child(cloned_item)
 	
 	for tile_row in range(level_structure.size()):
 		for tile_column in range(level_structure[tile_row].size()):
 			level_structure[tile_row][tile_column] = LEVEL_BLOCK.AIR
-			# TODO Adjust as necessary
-			
 			if tilemap.get_cell_source_id(Vector2i(tile_column, tile_row)) >= 0:
 				level_structure[tile_row][tile_column] = LEVEL_BLOCK.WALL
-	
 
 func _init_structure(width: int, height: int) -> Array:
 	var res = []

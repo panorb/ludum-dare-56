@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=4 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="2_yyijx"]
+[ext_resource type="Script" path="res://game/construction/construction_state.gd" id="3_k030l"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_4aq2a")
@@ -9,3 +10,6 @@ script = ExtResource("1_4aq2a")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(505, 328)
 texture = ExtResource("2_yyijx")
+
+[node name="ConstructionState" type="Node2D" parent="."]
+script = ExtResource("3_k030l")
