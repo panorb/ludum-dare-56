@@ -11,9 +11,9 @@ class_name LevelScene extends Control
 	'3': 3,
 }
 
-@onready var unlocked_level: int = 0
-
 signal level_selected
+signal locked_level_selected
+signal unlock_level_till
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,16 +22,16 @@ func _ready() -> void:
 
 	for level_card: LevelCard in level_cards:
 		level_card.pressed.connect(_on_level_selected)
-		level_card.locked = level_card.level > self.unlocked_level
+
+func unlock_level(level: int):
+	for level_card in level_cards:
+		level_card.locked = level_card.level > level
 
 func _on_level_selected(level: int) -> void:
-	if level <= unlocked_level:
-		level_selected.emit(level)
+	level_selected.emit(level)
 
 func _on_process_level_code():
 	var level_code: String = self.level_code_line_edit.text
 	if level_code in self.level_codes:
-		var level: int = self.level_codes[level_code]
-		self.unlocked_level = maxi(level, self.unlocked_level)
-		for level_card in level_cards:
-			level_card.locked = level_card.level > self.unlocked_level
+		var unlocking_level: int = self.level_codes[level_code]
+		unlock_level_till.emit(unlocking_level)

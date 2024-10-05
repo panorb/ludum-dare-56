@@ -36,6 +36,16 @@ var scenes : Dictionary = {
 			var main_menu_node = current_scene_node as MainMenu
 			main_menu_node.set_music_volume(value)
 
+var _level = 1;
+var level: int:
+	get: return self._level
+	set(value):
+		self._level = value
+		if self.current_scene_node is LevelScene:
+			var level_scene = current_scene_node as LevelScene
+			level_scene.unlock_level(value)
+	
+
 @onready var current_scene_node: Node = null
 @onready var current_scene_key: String
 @onready var current_scene:
@@ -108,6 +118,9 @@ func _on_start_level(level: int) -> Game:
 func _on_show_select_level() -> LevelScene:
 	var level_select_scene = self._set_current_scene(LEVEL_SCENE) as LevelScene
 
+	level_select_scene.unlock_level(self.level)
+
 	level_select_scene.level_selected.connect(_on_start_level)
+	level_select_scene.unlock_level_till.connect(func(unlocking_level): self.level = max(self.level,unlocking_level))
 
 	return level_select_scene
