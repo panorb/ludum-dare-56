@@ -96,3 +96,4 @@ func _on_start_level(level: int) -> Game:
 func _on_show_select_level() -> LevelScene:
 	var level_select_scene = self._set_current_scene(LEVEL_SCENE) as LevelScene
 	level_select_scene.level_selected.connect(_on_start_level)
+	return level_select_scene
