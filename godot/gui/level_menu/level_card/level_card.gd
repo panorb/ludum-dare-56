@@ -28,9 +28,9 @@ const LOCK_MODULE = Color.GRAY
 @export var locked: bool:
 	get: return self._locked
 	set(value):
-		self._locked = locked
+		self._locked = value
 		if self.level_texture_rect:
-			if locked:
+			if value:
 				self.modulate = LOCK_MODULE
 			else:
 				self.modulate = UNLOCK_MODULATE
