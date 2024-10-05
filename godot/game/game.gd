@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		simulation_state.step_forward()
 		tick_time = 0.25
 
-func load_level():
+func start_level(level: int):
 	# pass
 	# TODO create & load level scene
 	if current_level != null:
