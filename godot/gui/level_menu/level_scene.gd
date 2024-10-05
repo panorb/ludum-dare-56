@@ -16,7 +16,6 @@ class_name LevelScene extends Control
 signal level_selected
 signal locked_level_selected
 signal unlock_level_till
-signal close_level_locked_info
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

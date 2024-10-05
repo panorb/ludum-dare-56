@@ -105,10 +105,10 @@ func _on_show_main_menu() -> MainMenu:
 	
 	return main_menu_scene
 
-func _on_start_level(level: int) -> Game:
+func _on_start_level(starting_level: int) -> Game:
 	var game_scene = self._set_current_scene(GAME_SCENE) as Game
 	
-	game_scene.start_level(level)
+	game_scene.start_level(starting_level)
 	
 	game_scene.show_lose_screen.connect(func(): self.current_scene = LOSE_SCENE)
 	game_scene.show_win_screen.connect(func(): self.current_scene = WIN_SCENE)
