@@ -1,11 +1,15 @@
 @tool
 class_name LevelCard extends AspectRatioContainer
 
+signal pressed
+
 const UNLOCK_MODULATE = Color.WHITE
 const LOCK_MODULE = Color.GRAY
 
 @onready var level_name_label = %LevelNameLabel
 @onready var level_texture_rect = %LevelTextureRect
+
+@export var level: int
 
 @export var level_name: String:
 	get: return self._level_name
@@ -41,3 +45,7 @@ func _set_locked(locked: bool):
 			self.modulate = LOCK_MODULE
 		else:
 			self.modulate = UNLOCK_MODULATE
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		self.pressed.emit(self.level)
