@@ -4,7 +4,10 @@ class_name LevelCard extends AspectRatioContainer
 signal pressed
 
 const UNLOCK_MODULATE = Color.WHITE
+const UNLOCK_MOUSE_CURSOR_SHAPE = CursorShape.CURSOR_POINTING_HAND
+
 const LOCK_MODULE = Color.GRAY
+const LOCK_MOUSE_CURSOR_SHAPE = CursorShape.CURSOR_FORBIDDEN
 
 @onready var level_name_label = %LevelNameLabel
 @onready var level_texture_rect = %LevelTextureRect
@@ -29,11 +32,12 @@ const LOCK_MODULE = Color.GRAY
 	get: return self._locked
 	set(value):
 		self._locked = value
-		if self.level_texture_rect:
-			if value:
-				self.modulate = LOCK_MODULE
-			else:
-				self.modulate = UNLOCK_MODULATE
+		if value:
+			self.modulate = LOCK_MODULE
+			self.mouse_default_cursor_shape = LOCK_MOUSE_CURSOR_SHAPE
+		else:
+			self.modulate = UNLOCK_MODULATE
+			self.mouse_default_cursor_shape = UNLOCK_MOUSE_CURSOR_SHAPE
 
 var _level_name: String
 var _level_texture: Texture2D 
