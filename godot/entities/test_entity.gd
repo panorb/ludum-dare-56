@@ -10,8 +10,6 @@ func _process(delta: float) -> void:
 	pass
 
 func step(x, y, items_future, entities_now, entities_future, level_structure):
-	# TODO Test this
-	#entities_future[y][x] = self
 	var next_x = x+direction
 	if level_structure[y][next_x] == SimulationState.LEVEL_BLOCK.AIR && level_structure[y+1][next_x] == SimulationState.LEVEL_BLOCK.WALL:
 		entities_future[y][next_x] = self
