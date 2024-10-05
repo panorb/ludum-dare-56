@@ -1,11 +1,12 @@
 class_name MainMenu extends Control
 
 signal start_game
+signal show_levels
 signal change_language
 signal sfx_value_changed
 signal music_value_changed
 
-@onready var start_button := %StartButton
+@onready var level_button := %LevelButton
 @onready var credits_button := %CreditsButton
 @onready var quit_button := %QuitButton
 
@@ -19,7 +20,7 @@ signal music_value_changed
 @onready var music_sound_percent_label := %MusicSoundPercentLabel
 
 func _ready() -> void:
-	start_button.pressed.connect(func(): start_game.emit());
+	level_button.pressed.connect(_emit_show_levels);
 	select_english_button.pressed.connect(func(): change_language.emit('en'))
 	select_german_button.pressed.connect(func(): change_language.emit('de'))
 	
@@ -31,6 +32,9 @@ func _ready() -> void:
 
 	sfx_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(sfx_value_changed, volume_value, sfx_sound_percent_label))
 	music_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(music_value_changed, volume_value, music_sound_percent_label))
+
+func _emit_show_levels():
+	self.show_levels.emit()
 
 func _emit_volume_changed(volume_signal: Signal, volume_percent: float, label_node: Label ):
 	volume_signal.emit(volume_percent)

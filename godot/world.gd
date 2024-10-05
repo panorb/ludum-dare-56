@@ -22,7 +22,6 @@ var scenes : Dictionary = {
 	WIN_SCENE: null, # preload("res://gui/end_screen/win/win_screen.tscn"),
 }
 
-
 @onready var sfx_sound_value: float:
 	get: return self.get_sound_bus_volume(SFX_SOUND_BUS)
 	set(value):
@@ -63,7 +62,7 @@ var scenes : Dictionary = {
 func _ready():
 	self.sfx_sound_value = 80.0
 	self.music_sound_value = 80.0
-	self.current_scene = MAIN_MENU_SCENE
+	self._on_show_main_menu()
 	TranslationServer.set_locale(LANGUAGE_ENGLISH)
 
 func set_sound_bus_volume(bus_name: String, volume_percent: float):
@@ -85,9 +84,25 @@ func _set_current_scene(scene_key: String) -> Node:
 	
 	return next_scene_node
 
+func _on_show_main_menu() -> MainMenu:
+	var main_menu_scene = self._set_current_scene(MAIN_MENU_SCENE) as MainMenu
+	
+	main_menu_scene.set_music_volume(music_sound_value)
+	main_menu_scene.set_sfx_volume(sfx_sound_value)
+	
+	main_menu_scene.change_language.connect(func(language: String): TranslationServer.set_locale(language))
+	main_menu_scene.sfx_value_changed.connect(func(volume_percent: float): self.sfx_sound_value=volume_percent)
+	main_menu_scene.music_value_changed.connect(func(volume_percent: float): self.music_sound_value=volume_percent)
+	main_menu_scene.show_levels.connect(_on_show_select_level)
+	main_menu_scene.start_game.connect(_on_start_level)
+	
+	return main_menu_scene
+
 func _on_start_level(level: int) -> Game:
 	var game_scene = self._set_current_scene(GAME_SCENE) as Game
+	
 	game_scene.start_level(level)
+	
 	game_scene.show_lose_screen.connect(func(): self.current_scene = LOSE_SCENE)
 	game_scene.show_win_screen.connect(func(): self.current_scene = WIN_SCENE)
 	
@@ -95,5 +110,7 @@ func _on_start_level(level: int) -> Game:
 	
 func _on_show_select_level() -> LevelScene:
 	var level_select_scene = self._set_current_scene(LEVEL_SCENE) as LevelScene
+
 	level_select_scene.level_selected.connect(_on_start_level)
+
 	return level_select_scene
