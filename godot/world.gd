@@ -2,6 +2,7 @@ extends Node
 
 const MAIN_MENU_SCENE := 'main_menu'
 const GAME_SCENE := 'game'
+const LEVEL_SCENE := 'level'
 const LOSE_SCENE := 'lose'
 const WIN_SCENE := 'win'
 
@@ -15,8 +16,9 @@ const main_menu_scene := preload('res://gui/main_menu.tscn')
 
 var scenes : Dictionary = {
 	MAIN_MENU_SCENE: main_menu_scene,
-	GAME_SCENE: preload("res://game/game.tscn"),
-	LOSE_SCENE: null, #preload("res://gui/end_screen/lose/lose_screen.tscn"),
+	GAME_SCENE: preload('res://game/game.tscn'),
+	LEVEL_SCENE: preload('res://gui/level_menu/level_scene.tscn'),
+	LOSE_SCENE: null, #preload('res://gui/end_screen/lose/lose_screen.tscn'),
 	WIN_SCENE: null, # preload("res://gui/end_screen/win/win_screen.tscn"),
 }
 
@@ -45,7 +47,7 @@ var scenes : Dictionary = {
 		return current_scene_key
 	set(value):
 		if self.current_scene_node:
-			self.remove_child(self.current_scene_node)
+			self.current_scene_node.queue_free()
 		var next_scene: PackedScene = scenes[value]
 		var next_scene_node: Node = next_scene.instantiate()
 		self.add_child(next_scene_node)

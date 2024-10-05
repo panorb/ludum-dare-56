@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba2w6tbo0ernl"]
+
+[ext_resource type="Script" path="res://gui/level_menu/level_scene.gd" id="1_1487q"]
+[ext_resource type="PackedScene" uid="uid://cpnn8nuyqmuhk" path="res://gui/level_menu/level_card/level_card.tscn" id="2_j3hy7"]
+
+[node name="LevelScene" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1487q")
+
+[node name="Container" type="GridContainer" parent="."]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+alignment = 1
+
+[node name="LevelCard1" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+layout_mode = 2
+
+[node name="LevelCard2" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+layout_mode = 2
+
+[node name="LevelCard" parent="Container/HFlowContainer" instance=ExtResource("2_j3hy7")]
+modulate = Color(0.745098, 0.745098, 0.745098, 1)
+layout_mode = 2
+locked = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="LevelCodeLabel" type="Label" parent="Container/HBoxContainer"]
+layout_mode = 2
+text = "LEVEL_CODE_LABEL"
+
+[node name="LevelCodeLineEdit" type="LineEdit" parent="Container/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelCodeButton" type="Button" parent="Container/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LEVEL_CODE_BUTTON"
