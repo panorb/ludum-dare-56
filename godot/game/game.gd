@@ -14,16 +14,17 @@ var tick_time = 0.0
 func _ready() -> void:
 	#pass # Replace with function body.
 	load_level()
-	simulation_state = construction_state.create_simulation_state()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	tick_time -= delta
 	if simulation_state != null and tick_time < 0:
-		# TODO only every x amount of time
 		simulation_state.step_forward()
 		tick_time = 0.25
+	if Input.is_action_just_pressed("ui_select"):
+		#print(get_viewport().get_mouse_position())
+		start_simulation()
 
 func load_level():
 	# pass
@@ -36,3 +37,6 @@ func load_level():
 	# TODO create construction state
 	construction_state = ConstructionState.new()
 	construction_state.create(current_level)
+
+func start_simulation():
+	simulation_state = construction_state.create_simulation_state()
