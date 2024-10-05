@@ -1,6 +1,12 @@
 class_name ConstructionState
-extends Node
+extends RefCounted
 
+var _level = null
 
-func _create_simulation_state() -> SimulationState:
-	return null
+func create(level):
+	_level = level
+
+func create_simulation_state() -> SimulationState:
+	var sim_state = SimulationState.new()
+	sim_state.create(20, 16, _level, [], [])
+	return sim_state
