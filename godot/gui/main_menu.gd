@@ -29,13 +29,13 @@ func _ready() -> void:
 	else:
 		quit_button.pressed.connect(func(): get_tree().quit())
 
-	sfx_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(sfx_value_changed, volume_value, sfx_sound_percent_label))
-	music_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(music_value_changed, volume_value, music_sound_percent_label))
+	sfx_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(sfx_value_changed, volume_value))
+	music_sound_slider.value_changed.connect(func(volume_value: float): _emit_volume_changed(music_value_changed, volume_value))
 
 func _emit_show_levels():
 	self.show_levels.emit()
 
-func _emit_volume_changed(volume_signal: Signal, volume_percent: float, label_node: Label ):
+func _emit_volume_changed(volume_signal: Signal, volume_percent: float):
 	volume_signal.emit(volume_percent)
 	
 func set_music_volume(volume_percent: float):
