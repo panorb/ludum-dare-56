@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		#print(get_viewport().get_mouse_position())
 		start_simulation()
 
-func load_level():
+func start_level(level: int):
 	# pass
 	# TODO create & load level scene
 	if current_level != null:
