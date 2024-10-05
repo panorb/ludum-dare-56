@@ -14,5 +14,5 @@ SFX_SLIDER_LABEL,SFX,SFX
 MUSIC_SLIDER_LABEL,Music,Musik
 SELECT_LANGUAGE,"Select language","Sprache auswählen"
 LEVEL_CODE_LABEL,"Level Code","Level Code"
-LEVEL_CODE_BUTTON,"Einlösen", "Enter"
-LEVEL_BUTTON,"Level Auswählen","Select Level"
+LEVEL_CODE_BUTTON,"Enter","Einlösen"
+LEVEL_BUTTON,"Select Level","Level Auswählen"
