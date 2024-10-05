@@ -1,6 +1,5 @@
 class_name MainMenu extends Control
 
-signal start_game
 signal show_levels
 signal change_language
 signal sfx_value_changed

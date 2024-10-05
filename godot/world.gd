@@ -92,7 +92,6 @@ func _on_show_main_menu() -> MainMenu:
 	main_menu_scene.sfx_value_changed.connect(func(volume_percent: float): self.sfx_sound_value=volume_percent)
 	main_menu_scene.music_value_changed.connect(func(volume_percent: float): self.music_sound_value=volume_percent)
 	main_menu_scene.show_levels.connect(_on_show_select_level)
-	main_menu_scene.start_game.connect(_on_start_level)
 	
 	return main_menu_scene
 
