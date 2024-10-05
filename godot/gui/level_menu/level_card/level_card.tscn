@@ -10,7 +10,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 13
 script = ExtResource("1_8gqq1")
-level = null
 
 [node name="LevelTextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
