@@ -27,7 +27,13 @@ const LOCK_MODULE = Color.GRAY
 
 @export var locked: bool:
 	get: return self._locked
-	set(value): self._set_locked(value)
+	set(value):
+		self._locked = locked
+		if self.level_texture_rect:
+			if locked:
+				self.modulate = LOCK_MODULE
+			else:
+				self.modulate = UNLOCK_MODULATE
 
 var _level_name: String
 var _level_texture: Texture2D 
@@ -37,14 +43,6 @@ var _locked: bool = false
 func _ready() -> void:
 	self.level_name_label.text = self._level_name
 	self.level_texture = self.level_texture
-
-func _set_locked(locked: bool):
-	self._locked = locked
-	if self.level_texture_rect:
-		if locked:
-			self.modulate = LOCK_MODULE
-		else:
-			self.modulate = UNLOCK_MODULATE
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
