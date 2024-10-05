@@ -1,5 +1,5 @@
 class_name Entity
-extends Node
+extends Node2D
 
-func step(x, y, items_future, entities_now, entities_future):
+func step(x, y, items_future, entities_now, entities_future, level_structure):
 	pass
