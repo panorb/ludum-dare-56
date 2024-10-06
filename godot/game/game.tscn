@@ -56,4 +56,4 @@ script = ExtResource("3_k030l")
 position = Vector2(1185, 550)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ntuat")
-frame_progress = 0.593711
+autoplay = "default"
