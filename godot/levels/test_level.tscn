@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://j5g2uq3wi45k"]
+[gd_scene load_steps=6 format=4 uid="uid://j5g2uq3wi45k"]
 
-[ext_resource type="PackedScene" uid="uid://bcdb0ok6nfa66" path="res://entities/test_entity.tscn" id="1_cvql4"]
+[ext_resource type="PackedScene" path="res://entities/test_entity.tscn" id="1_cvql4"]
 [ext_resource type="Texture2D" uid="uid://ut8ykuydeavb" path="res://levels/block.png" id="1_si2qy"]
+[ext_resource type="PackedScene" uid="uid://bkujsleu56b2j" path="res://items/test_item.tscn" id="3_s860r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4h36"]
 texture = ExtResource("1_si2qy")
@@ -21,4 +22,19 @@ tile_set = SubResource("TileSet_6fupq")
 [node name="TestEntity" parent="Entities" instance=ExtResource("1_cvql4")]
 position = Vector2(101, 68)
 
+[node name="TestEntity2" parent="Entities" instance=ExtResource("1_cvql4")]
+position = Vector2(248, 88)
+
 [node name="Items" type="Node2D" parent="."]
+
+[node name="TestItem" parent="Items" instance=ExtResource("3_s860r")]
+position = Vector2(187, 56)
+
+[node name="TestItem2" parent="Items" instance=ExtResource("3_s860r")]
+position = Vector2(201, 69)
+
+[node name="TestItem3" parent="Items" instance=ExtResource("3_s860r")]
+position = Vector2(187, 32)
+
+[node name="TestItem4" parent="Items" instance=ExtResource("3_s860r")]
+position = Vector2(262, 31)

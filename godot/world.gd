@@ -68,8 +68,8 @@ var level: int:
 		#	win_node.show_main_menu.connect(_on_show_main_menu)
 
 func _ready():
-	self.sfx_sound_value = 80.0
-	self.music_sound_value = 80.0
+	self.sfx_sound_value = 0.0
+	self.music_sound_value = 0.0
 	self._on_show_main_menu()
 	TranslationServer.set_locale(LANGUAGE_ENGLISH)
 
