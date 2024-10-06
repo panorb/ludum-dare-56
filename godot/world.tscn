@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://35r7pg4epjbe"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_wpjan"]
-[ext_resource type="AudioStream" uid="uid://dyc3hmgwp7x8u" path="res://main_background_theme.mp3" id="2_mabpr"]
+[ext_resource type="AudioStream" uid="uid://dcrliwclvfxct" path="res://main_background_theme.ogg" id="2_fqf1q"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -13,6 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_wpjan")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_mabpr")
+stream = ExtResource("2_fqf1q")
 autoplay = true
 bus = &"Music"
