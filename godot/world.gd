@@ -24,16 +24,16 @@ var scenes : Dictionary = {
 	get: return self.get_sound_bus_volume(SFX_SOUND_BUS)
 	set(value):
 		self.set_sound_bus_volume(SFX_SOUND_BUS, value)
-		if current_scene_node is MainMenu:
-			var main_menu_node = current_scene_node as MainMenu
+		if _current_scene_node is MainMenu:
+			var main_menu_node = _current_scene_node as MainMenu
 			main_menu_node.set_sfx_volume(value)
 
 @onready var music_sound_value: float:
 	get: return self.get_sound_bus_volume(MUSIC_SOUND_BUS)
 	set(value):
 		self.set_sound_bus_volume(MUSIC_SOUND_BUS, value)
-		if current_scene_node is MainMenu:
-			var main_menu_node = current_scene_node as MainMenu
+		if _current_scene_node is MainMenu:
+			var main_menu_node = _current_scene_node as MainMenu
 			main_menu_node.set_music_volume(value)
 
 var _level = 1;
@@ -41,31 +41,12 @@ var level: int:
 	get: return self._level
 	set(value):
 		self._level = value
-		if self.current_scene_node is LevelScene:
-			var level_scene = current_scene_node as LevelScene
+		if self._current_scene_node is LevelScene:
+			var level_scene = _current_scene_node as LevelScene
 			level_scene.unlock_level(value)
 	
 
-@onready var current_scene_node: Node = null
-@onready var current_scene_key: String
-@onready var current_scene:
-	get:
-		return current_scene_key
-	set(value):
-		var next_scene_node = self._set_current_scene(value)
-		if next_scene_node is MainMenu:
-			var main_menu_node = next_scene_node as MainMenu
-			main_menu_node.set_music_volume(music_sound_value)
-			main_menu_node.set_sfx_volume(sfx_sound_value)
-			main_menu_node.change_language.connect(func(language: String): TranslationServer.set_locale(language))
-			main_menu_node.sfx_value_changed.connect(func(volume_percent: float): self.sfx_sound_value=volume_percent)
-			main_menu_node.music_value_changed.connect(func(volume_percent: float): self.music_sound_value=volume_percent)
-		elif next_scene_node is LevelScene:
-			var level_scene = next_scene_node as LevelScene
-			level_scene.level_selected.connect(_on_start_level)
-		#elif next_scene_node is WinScreen:
-		#	var win_node = next_scene_node as WinScreen
-		#	win_node.show_main_menu.connect(_on_show_main_menu)
+@onready var _current_scene_node: Node = null
 
 func _ready():
 	self.sfx_sound_value = 80.0
@@ -82,13 +63,12 @@ func get_sound_bus_volume(bus_name: String) ->  float:
 	return db_to_linear(AudioServer.get_bus_volume_db(bus_index)) * 100
 
 func _set_current_scene(scene_key: String) -> Node:
-	if self.current_scene_node:
-		self.current_scene_node.queue_free()
+	if self._current_scene_node:
+		self._current_scene_node.queue_free()
 	var next_scene: PackedScene = scenes[scene_key]
 	var next_scene_node: Node = next_scene.instantiate()
 	self.add_child(next_scene_node)
-	self.current_scene_key = scene_key
-	self.current_scene_node = next_scene_node
+	self._current_scene_node = next_scene_node
 	
 	return next_scene_node
 
