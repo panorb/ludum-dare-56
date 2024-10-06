@@ -10,8 +10,6 @@
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_4aq2a")
-metadata/_edit_vertical_guides_ = [1291.0]
-metadata/_edit_horizontal_guides_ = [721.0]
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
