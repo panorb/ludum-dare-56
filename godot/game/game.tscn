@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=6 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://dccxl82aac16m" path="res://game/wall.png" id="2_0qe6m"]
 [ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="2_yyijx"]
 [ext_resource type="Script" path="res://game/construction/construction_state.gd" id="3_k030l"]
+[ext_resource type="Texture2D" uid="uid://bqfykde3h43ho" path="res://game/web.png" id="5_0kgdn"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -25,3 +26,10 @@ texture = ExtResource("2_yyijx")
 
 [node name="ConstructionState" type="Node2D" parent="."]
 script = ExtResource("3_k030l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1110, 158)
+scale = Vector2(4, 4)
+texture = ExtResource("5_0kgdn")
+region_enabled = true
+region_rect = Rect2(14, 4, 85, 79)
