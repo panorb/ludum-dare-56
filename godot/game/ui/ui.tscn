@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c17krfs5denn3"]
+
+[ext_resource type="Texture2D" uid="uid://dgf3hxpn4xw0s" path="res://game/ui/board.svg" id="1_7fd06"]
+[ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="2_4ewte"]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_7fd06")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 66.0
+offset_right = -64.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_4ewte")
+expand_mode = 2
+stretch_mode = 4
