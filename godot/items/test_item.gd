@@ -29,5 +29,6 @@ func step(x, y, items_now, items_future, level_structure):
 	
 func throw():
 	current_state = $States/StateThrown
+	current_state.enter()
 	
 	# current_state.initialize(self)

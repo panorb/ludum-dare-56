@@ -4,8 +4,10 @@ var direction = -1
 var target_position = Vector2(0, 0)
 
 func initialize(item: Item):
-	target_position = item.actual_position
 	super(item)
+
+func enter():
+	target_position = item.actual_position
 
 func easing_function(x: float) -> float:
 	return x

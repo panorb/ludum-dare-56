@@ -17,6 +17,9 @@ func _step_internal(tick, x, y, items_future, entities_now, entities_future, lev
 		step(x, y, items_future, entities_now, entities_future, level_structure)
 		_processed_tick = tick
 
+func is_free(x, y, entities_now, entities_future):
+	return entities_now[y][x] == null and entities_future[y][x] == null
+
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	pass
 
@@ -25,4 +28,4 @@ func move_to(x, y, entities_future):
 	actual_position.x = position.x
 	actual_position.y = position.y
 	target_position.x = x*Globals.TILE_SIZE+(Globals.TILE_SIZE/2)
-	target_position.y = y*Globals.TILE_SIZE+(Globals.TILE_SIZE/2)
+	target_position.y = y*Globals.TILE_SIZE+(Globals.TILE_SIZE)
