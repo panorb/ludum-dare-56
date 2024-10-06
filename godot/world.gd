@@ -12,10 +12,8 @@ const LANGUAGE_GERMAN := 'de'
 const SFX_SOUND_BUS := 'SFX'
 const MUSIC_SOUND_BUS := 'Music'
 
-const main_menu_scene := preload('res://gui/main_menu.tscn')
-
 var scenes : Dictionary = {
-	MAIN_MENU_SCENE: main_menu_scene,
+	MAIN_MENU_SCENE: preload('res://gui/main_menu.tscn'),
 	GAME_SCENE: preload('res://game/game.tscn'),
 	LEVEL_SCENE: preload('res://gui/level_menu/level_scene.tscn'),
 	LOSE_SCENE: null, #preload('res://gui/end_screen/lose/lose_screen.tscn'),
@@ -37,6 +35,16 @@ var scenes : Dictionary = {
 		if current_scene_node is MainMenu:
 			var main_menu_node = current_scene_node as MainMenu
 			main_menu_node.set_music_volume(value)
+
+var _level = 1;
+var level: int:
+	get: return self._level
+	set(value):
+		self._level = value
+		if self.current_scene_node is LevelScene:
+			var level_scene = current_scene_node as LevelScene
+			level_scene.unlock_level(value)
+	
 
 @onready var current_scene_node: Node = null
 @onready var current_scene_key: String
@@ -94,14 +102,13 @@ func _on_show_main_menu() -> MainMenu:
 	main_menu_scene.sfx_value_changed.connect(func(volume_percent: float): self.sfx_sound_value=volume_percent)
 	main_menu_scene.music_value_changed.connect(func(volume_percent: float): self.music_sound_value=volume_percent)
 	main_menu_scene.show_levels.connect(_on_show_select_level)
-	main_menu_scene.start_game.connect(_on_start_level)
 	
 	return main_menu_scene
 
-func _on_start_level(level: int) -> Game:
+func _on_start_level(starting_level: int) -> Game:
 	var game_scene = self._set_current_scene(GAME_SCENE) as Game
 	
-	game_scene.start_level(level)
+	game_scene.start_level(starting_level)
 	
 	game_scene.show_lose_screen.connect(func(): self.current_scene = LOSE_SCENE)
 	game_scene.show_win_screen.connect(func(): self.current_scene = WIN_SCENE)
@@ -111,6 +118,9 @@ func _on_start_level(level: int) -> Game:
 func _on_show_select_level() -> LevelScene:
 	var level_select_scene = self._set_current_scene(LEVEL_SCENE) as LevelScene
 
+	level_select_scene.unlock_level(self.level)
+
 	level_select_scene.level_selected.connect(_on_start_level)
+	level_select_scene.unlock_level_till.connect(func(unlocking_level): self.level = max(self.level,unlocking_level))
 
 	return level_select_scene

@@ -1,5 +1,7 @@
 class_name ConstructionState
-extends RefCounted
+extends Node
+
+var simulation_state = preload("res://game/simulation/simulation_state.tscn")
 
 var _level = null
 var _level_entities = []
@@ -18,9 +20,11 @@ func create(level):
 	
 	# TODO: Adjust as necessary
 	var tilemap = level.get_node("TileMapLayer")
+	
 	_level_size = tilemap.get_used_rect().size
+	add_child(level)
 
 func create_simulation_state() -> SimulationState:
-	var sim_state = SimulationState.new()
+	var sim_state = simulation_state.instantiate()
 	sim_state.create(_level_size[0], _level_size[1], _level, _level_entities + _player_entities, _level_items)
 	return sim_state

@@ -1,11 +1,16 @@
 class_name SimulationState
-extends RefCounted
+extends Node2D
 
 var items_now : Array # [[ Item ]]
 var entities_now : Array # [[ Entity ]]
 var level_structure : Array # [[ int ]]
 
+var tick_time = 0.0
+var ticking_things = []
+
 enum LEVEL_BLOCK { AIR = 0, WALL = 400 }
+
+const TICKS_PER_SECOND = 4
 
 func create(width, height, level, entities, items):
 	items_now = _init_structure(width, height)
@@ -14,21 +19,26 @@ func create(width, height, level, entities, items):
 	
 	# TODO: Adjust as necessary
 	var tilemap = level.get_node("TileMapLayer")
+	add_child(tilemap.duplicate())
+	
+	ticking_things = []
 	
 	for entity in entities:
-		#print(int(entity.position[0] / 16), " ", int(entity.position[1] / 16))
-		entities_now[int(entity.position[1] / 16)][int(entity.position[0] / 16)] = entity
+		var cloned_entity = entity.duplicate()
+		entities_now[int(entity.position[1] / 16)][int(entity.position[0] / 16)] = cloned_entity
+		add_child(cloned_entity)
+		ticking_things.append(cloned_entity)
 	for item in items:
-		pass
+		var cloned_item = item.duplicate()
+		items_now[int(items.position[1] / 16)][int(items.position[0] / 16)] = cloned_item
+		add_child(cloned_item)
+		ticking_things.append(cloned_item)
 	
 	for tile_row in range(level_structure.size()):
 		for tile_column in range(level_structure[tile_row].size()):
 			level_structure[tile_row][tile_column] = LEVEL_BLOCK.AIR
-			# TODO Adjust as necessary
-			
 			if tilemap.get_cell_source_id(Vector2i(tile_column, tile_row)) >= 0:
 				level_structure[tile_row][tile_column] = LEVEL_BLOCK.WALL
-	
 
 func _init_structure(width: int, height: int) -> Array:
 	var res = []
@@ -39,6 +49,14 @@ func _init_structure(width: int, height: int) -> Array:
 			row.append(null)
 		res.append(row)
 	return res
+
+func _process(delta: float) -> void:
+	tick_time -= delta
+	if tick_time < 0:
+		step_forward()
+		tick_time += (1.0/TICKS_PER_SECOND)
+	for thing in ticking_things:
+		thing.update(delta, tick_time)
 
 func step_forward():
 	var items_future : Array = _init_structure(items_now[0].size(), items_now.size())
