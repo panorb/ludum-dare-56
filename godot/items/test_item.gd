@@ -3,7 +3,8 @@ extends Item
 @onready var current_state : ItemState = $States/StateThrown
 @onready var states = $States
 
-func easing_function(x: float) -> float:
+func easing_function(x:
+	 float) -> float:
 	return x
 
 func _ready() -> void:

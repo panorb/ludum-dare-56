@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx483tkmsru1x"]
+
+[ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="1_acq3f"]
+
+[node name="Thrower" type="Node2D"]
+
+[node name="Thrower" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_acq3f")

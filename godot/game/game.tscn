@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="2_yyijx"]
 [ext_resource type="Script" path="res://game/construction/construction_state.gd" id="3_k030l"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_4aq2a")
 
 [node name="Icon" type="Sprite2D" parent="."]
