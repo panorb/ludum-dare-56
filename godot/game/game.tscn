@@ -11,7 +11,7 @@ script = ExtResource("1_4aq2a")
 metadata/_edit_vertical_guides_ = [1291.0]
 metadata/_edit_horizontal_guides_ = [721.0]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
 scale = Vector2(2, 2)
 texture = ExtResource("2_0qe6m")
