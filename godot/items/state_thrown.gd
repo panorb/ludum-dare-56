@@ -32,10 +32,17 @@ func move_to(x, y, items_future):
 	item.actual_position = item.position
 	target_position = Vector2(x + 0.5, y + 0.5) * Globals.TILE_SIZE
 	
+	var animation_duration = 1.0 / SimulationState.TICKS_PER_SECOND
+	var height = 16.0
+	
 	# var tween : Tween = item.tween
 	item.tween.kill()
 	item.tween = get_tree().create_tween()
-	item.tween.tween_property(item, "position", target_position, 1.0 / SimulationState.TICKS_PER_SECOND)
+	item.tween.set_parallel()
+	item.tween.tween_property(item, "position:x", target_position.x, animation_duration * 0.6).set_delay(animation_duration * 0.4)
+	item.tween.tween_property(item, "position:y", target_position.y - (Globals.TILE_SIZE  / 2.0), animation_duration * 0.3).set_ease(Tween.EASE_OUT).set_delay(animation_duration * 0.4)
+	item.tween.tween_property(item, "position:y", target_position.y, animation_duration * 0.5).set_ease(Tween.EASE_IN).set_delay(animation_duration * 0.3)
+
 	item.tween.play()
 	super(x, y, items_future)
 	#if (level_structure[y+1][x] == SimulationState.LEVEL_BLOCK.AIR and level_structure[y+2][x] == SimulationState.LEVEL_BLOCK.AIR):

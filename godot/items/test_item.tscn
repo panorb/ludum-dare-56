@@ -1,27 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkujsleu56b2j"]
+[gd_scene load_steps=5 format=3 uid="uid://bkujsleu56b2j"]
 
 [ext_resource type="Script" path="res://items/test_item.gd" id="1_ipupd"]
-[ext_resource type="Shader" path="res://items/colorchangeable_item.gdshader" id="2_immct"]
+[ext_resource type="Texture2D" uid="uid://dpl10l2iq4e7x" path="res://items/test_item.png" id="2_v6mqm"]
 [ext_resource type="Script" path="res://items/state_normal.gd" id="3_dmyyg"]
-[ext_resource type="Texture2D" uid="uid://biwhk3mw08ec7" path="res://items/color_test.png" id="3_ntrtn"]
 [ext_resource type="Script" path="res://items/state_thrown.gd" id="4_r8y4d"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpbvu"]
-shader = ExtResource("2_immct")
-shader_parameter/target_color_a = Vector3(1, 0, 0)
-shader_parameter/new_color_a = Vector3(0, 1, 1)
-shader_parameter/target_color_b = Vector3(0, 1, 0)
-shader_parameter/new_color_b = Vector3(1, 0, 1)
 
 [node name="TestItem" type="Node2D"]
 script = ExtResource("1_ipupd")
 
 [node name="Texture" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture_filter = 1
-material = SubResource("ShaderMaterial_wpbvu")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ntrtn")
+texture = ExtResource("2_v6mqm")
 
 [node name="States" type="Node" parent="."]
 
