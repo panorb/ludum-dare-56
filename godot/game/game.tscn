@@ -20,16 +20,16 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 360)
 
+[node name="WebSprite2D" type="Sprite2D" parent="BackgroundSprite2D"]
+position = Vector2(555, 79)
+scale = Vector2(2, 2)
+texture = ExtResource("5_0kgdn")
+region_enabled = true
+region_rect = Rect2(14, 4, 85, 79)
+
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(505, 328)
 texture = ExtResource("2_yyijx")
 
 [node name="ConstructionState" type="Node2D" parent="."]
 script = ExtResource("3_k030l")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1110, 158)
-scale = Vector2(4, 4)
-texture = ExtResource("5_0kgdn")
-region_enabled = true
-region_rect = Rect2(14, 4, 85, 79)
