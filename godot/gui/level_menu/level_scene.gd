@@ -20,7 +20,7 @@ signal unlock_level_till
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_code_button.pressed.connect(_on_process_level_code)
-	level_code_line_edit.text_submitted.connect(_on_process_level_code)
+	level_code_line_edit.text_submitted.connect(func(_text:String): self._on_process_level_code())
 	level_locked_dialog_close_timer.timeout.connect(func(): self.level_locked_dialog_container.visible = false)
 
 	for level_card: LevelCard in level_cards:
