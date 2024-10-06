@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://j5g2uq3wi45k"]
 
-[ext_resource type="PackedScene" path="res://entities/test_entity.tscn" id="1_cvql4"]
+[ext_resource type="PackedScene" uid="uid://bbrhpj8rys6b7" path="res://entities/test_entity.tscn" id="1_cvql4"]
 [ext_resource type="Texture2D" uid="uid://ut8ykuydeavb" path="res://levels/block.png" id="1_si2qy"]
 [ext_resource type="PackedScene" uid="uid://bx483tkmsru1x" path="res://entities/thrower.tscn" id="3_bfcsx"]
 [ext_resource type="PackedScene" uid="uid://bkujsleu56b2j" path="res://items/test_item.tscn" id="3_s860r"]
@@ -27,12 +27,12 @@ position = Vector2(101, 68)
 position = Vector2(248, 88)
 
 [node name="Thrower" parent="Entities" instance=ExtResource("3_bfcsx")]
-position = Vector2(119, 80)
+position = Vector2(119, 74)
 
 [node name="Items" type="Node2D" parent="."]
 
 [node name="TestItem" parent="Items" instance=ExtResource("3_s860r")]
-position = Vector2(187, 56)
+position = Vector2(119, 23)
 
 [node name="TestItem2" parent="Items" instance=ExtResource("3_s860r")]
 position = Vector2(201, 69)

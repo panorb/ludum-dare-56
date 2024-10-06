@@ -1,6 +1,6 @@
 extends Item
 
-@onready var current_state : ItemState = $States/StateThrown
+@onready var current_state : ItemState = $States/StateNormal
 @onready var states = $States
 
 func easing_function(x:
@@ -27,3 +27,7 @@ func update(delta: float, tick_time: float) -> void:
 func step(x, y, items_now, items_future, level_structure):
 	current_state.step(x, y, items_now, items_future, level_structure)
 	
+func throw():
+	current_state = $States/StateThrown
+	
+	# current_state.initialize(self)
