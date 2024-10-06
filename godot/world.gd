@@ -12,6 +12,11 @@ const LANGUAGE_GERMAN := 'de'
 const SFX_SOUND_BUS := 'SFX'
 const MUSIC_SOUND_BUS := 'Music'
 
+const FAST_MUSIC_LEVEL := 2
+
+@onready var main_background_theme_audio_stream_player := %MainBackgroundThemeAudioStreamPlayer
+@onready var main_background_theme_fast_audio_stream_player := %MainBackgroundThemeFastAudioStreamPlayer
+
 var scenes : Dictionary = {
 	MAIN_MENU_SCENE: preload('res://gui/main_menu.tscn'),
 	GAME_SCENE: preload('res://game/game.tscn'),
@@ -92,7 +97,12 @@ func _on_start_level(starting_level: int) -> Game:
 	
 	game_scene.show_lose_screen.connect(func(): self.current_scene = LOSE_SCENE)
 	game_scene.show_win_screen.connect(func(): self.current_scene = WIN_SCENE)
-	
+
+	if level >= FAST_MUSIC_LEVEL:
+		var music_fade_tween  = get_tree().create_tween().bind_node(self)
+		music_fade_tween.tween_property(main_background_theme_fast_audio_stream_player, "volume_db", 0, 5)
+		music_fade_tween.tween_property(main_background_theme_audio_stream_player, "volume_db", -80.0, 5)
+
 	return game_scene
 	
 func _on_show_select_level() -> LevelScene:

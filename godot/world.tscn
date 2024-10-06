@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://35r7pg4epjbe"]
+[gd_scene load_steps=4 format=3 uid="uid://35r7pg4epjbe"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_wpjan"]
 [ext_resource type="AudioStream" uid="uid://dcrliwclvfxct" path="res://main_background_theme.ogg" id="2_fqf1q"]
+[ext_resource type="AudioStream" uid="uid://dqu31rgvnw1oc" path="res://main_background_theme_fast.ogg" id="3_b2nth"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -12,7 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wpjan")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MainBackgroundThemeAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_fqf1q")
+autoplay = true
+bus = &"Music"
+
+[node name="MainBackgroundThemeFastAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_b2nth")
+volume_db = -80.0
 autoplay = true
 bus = &"Music"
