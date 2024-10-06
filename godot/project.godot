@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Ludum Dare 56"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg")
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations.de.translation", "res://translations.en.translation")

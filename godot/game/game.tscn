@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=9 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://dccxl82aac16m" path="res://game/wall.png" id="2_0qe6m"]
-[ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="2_yyijx"]
 [ext_resource type="Script" path="res://game/construction/construction_state.gd" id="3_k030l"]
 [ext_resource type="Texture2D" uid="uid://bbs8tvfqt1eer" path="res://game/spider.png" id="4_uijuu"]
 [ext_resource type="Texture2D" uid="uid://bqfykde3h43ho" path="res://game/web.png" id="5_0kgdn"]
@@ -28,6 +27,7 @@ texture_filter = 1
 script = ExtResource("1_4aq2a")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.366595, 0.366595, 0.366595, 1)
 texture_repeat = 2
 scale = Vector2(2, 2)
 texture = ExtResource("2_0qe6m")
@@ -44,10 +44,6 @@ region_rect = Rect2(14, 4, 85, 79)
 [node name="SpiderSprite2D" type="Sprite2D" parent="BackgroundSprite2D"]
 position = Vector2(603, 91)
 texture = ExtResource("4_uijuu")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(505, 328)
-texture = ExtResource("2_yyijx")
 
 [node name="ConstructionState" type="Node2D" parent="."]
 script = ExtResource("3_k030l")
