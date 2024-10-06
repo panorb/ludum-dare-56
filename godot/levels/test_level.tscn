@@ -33,12 +33,3 @@ position = Vector2(119, 74)
 
 [node name="TestItem" parent="Items" instance=ExtResource("3_s860r")]
 position = Vector2(119, 23)
-
-[node name="TestItem2" parent="Items" instance=ExtResource("3_s860r")]
-position = Vector2(201, 69)
-
-[node name="TestItem3" parent="Items" instance=ExtResource("3_s860r")]
-position = Vector2(187, 32)
-
-[node name="TestItem4" parent="Items" instance=ExtResource("3_s860r")]
-position = Vector2(262, 31)

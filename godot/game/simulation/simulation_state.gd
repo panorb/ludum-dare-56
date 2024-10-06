@@ -72,13 +72,13 @@ func step_forward():
 		for item_column_i in range(items_now[item_row_i].size()):
 			var items = items_now[item_row_i][item_column_i]
 			for item in items:
-				item._step_internal(current_tick, item_column_i, item_row_i, items_now, items_future, level_structure)
+				item.step(item_column_i, item_row_i, items_now, items_future, level_structure)
 	
 	for entity_row_i in range(entities_now.size()):
 		for entity_column_i in range(entities_now[entity_row_i].size()):
 			var entity = entities_now[entity_row_i][entity_column_i]
 			if entity != null:
-				entity._step_internal(current_tick, entity_column_i, entity_row_i, items_future, entities_now, entities_future, level_structure)
+				entity.step(entity_column_i, entity_row_i, items_future, entities_now, entities_future, level_structure)
 	
 	items_now = items_future
 	entities_now = entities_future
