@@ -76,3 +76,10 @@ stretch_mode = 3
 [node name="Ui" parent="CanvasLayer/UiContainer" instance=ExtResource("8_7sqh0")]
 clip_contents = true
 layout_mode = 2
+
+[node name="LevelLeftTopNode2D" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="LevelRightBottomNode2D" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1242, 395)

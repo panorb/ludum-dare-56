@@ -10,6 +10,9 @@ var construction_state = null
 var simulation_state = null
 var running = false
 
+@onready var level_left_top := %LevelLeftTopNode2D
+@onready var level_right_bottom :=  %LevelRightBottomNode2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +37,9 @@ func start_level(level: int):
 	if level:
 		current_level = base_levels[level-1].instantiate()
 	construction_state = get_node("ConstructionState")
-	construction_state.create(current_level)
+	construction_state.create(current_level, level_left_top, level_right_bottom)
+	
+	
 
 func start_simulation():
 	construction_state.hide()
