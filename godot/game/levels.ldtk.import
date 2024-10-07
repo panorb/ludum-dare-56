@@ -2,15 +2,15 @@
 
 importer="ldtk.import"
 type="PackedScene"
-uid="uid://67c6mjwltkg"
+uid="uid://bbvdofqaqbun3"
 path="res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn"
 
 [deps]
 
-files=["res://game/levels/Level_0.scn", "res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn"]
+files=["res://game/tilesets/tileset_32px.res", "res://game/levels/Level_0.scn", "res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn"]
 
 source_file="res://game/levels.ldtk"
-dest_files=["res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn", "res://game/levels/Level_0.scn", "res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn"]
+dest_files=["res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn", "res://game/tilesets/tileset_32px.res", "res://game/levels/Level_0.scn", "res://.godot/imported/levels.ldtk-67dad297468dda86fd7749427387e7fc.scn"]
 
 [params]
 

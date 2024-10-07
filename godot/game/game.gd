@@ -3,7 +3,7 @@ class_name Game extends Node
 signal show_lose_screen
 signal show_win_screen
 
-var level_test = preload("res://levels/test_level.tscn")
+var base_levels : Array[PackedScene] = []
 
 var current_level = null
 var construction_state = null
@@ -13,6 +13,8 @@ var running = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for level_file in DirAccess.get_files_at("res://game/levels"):
+		base_levels.append(load("res://game/levels/" + level_file))
 	start_level(1)
 
 
@@ -30,7 +32,7 @@ func start_level(level: int):
 		current_level.queue_free()
 	# TODO Instantiate correct level
 	if level:
-		current_level = level_test.instantiate()
+		current_level = base_levels[level-1].instantiate()
 	construction_state = get_node("ConstructionState")
 	construction_state.create(current_level)
 

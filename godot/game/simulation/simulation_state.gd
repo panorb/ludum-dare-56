@@ -20,7 +20,7 @@ func create(width, height, level, entities, items):
 	level_structure = _init_structure(width, height)
 	
 	# TODO: Adjust as necessary
-	var tilemap = level.get_node("TileMapLayer")
+	var tilemap = level.get_node("Structure")
 	add_child(tilemap.duplicate())
 	
 	ticking_things = []
