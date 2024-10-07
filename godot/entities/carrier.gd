@@ -14,7 +14,7 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 	var next_x = x+direction
 	
 	if items_future[y][x].size() > 0:
-		pickup(items_future[y][x].pop())
+		pickup(items_future[y][x].pop_front())
 	
 	if is_free(next_x, y, entities_now, entities_future) and level_structure[y][next_x] == SimulationState.LEVEL_BLOCK.AIR && level_structure[y+1][next_x] == SimulationState.LEVEL_BLOCK.WALL:
 		move_to(next_x, y, entities_future)
@@ -25,3 +25,4 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 
 func pickup(item):
 	$CarriedItem.add_child(item.get_node("Texture"))
+	item.queue_free()

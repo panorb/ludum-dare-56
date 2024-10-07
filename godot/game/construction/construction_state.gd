@@ -9,6 +9,8 @@ var _level_items = []
 var _player_entities = []
 var _level_size = Vector2i(20, 12)
 
+var base_item_scene : PackedScene = preload("res://items/base_item.tscn")
+
 var _possible_entities = {
 	"Carrier": preload("res://entities/carrier.tscn"),
 	"Thrower": preload("res://entities/thrower.tscn"),
@@ -25,7 +27,14 @@ func create(level):
 		
 		match identifier:
 			"Item":
-				print("Item")
+				var item_type = entity_dict["fields"]["ItemType"]
+				var count = entity_dict["fields"]["Count"]
+				
+				print("Item " + str(item_type) + " x " + str(count))
+				var item_node : Item = base_item_scene.instantiate()
+				item_node.position = Vector2(entity_dict.position) + Vector2(0.5, 1) * Globals.TILE_SIZE
+				level.get_node("Entities").add_child(item_node)
+				_level_items.append(item_node)
 			_:
 				var entity_scene : PackedScene = _possible_entities[identifier]
 				var entity_node : Entity = entity_scene.instantiate()
