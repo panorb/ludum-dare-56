@@ -75,9 +75,7 @@ stretch_mode = 3
 
 [node name="SelectBoard" parent="CanvasLayer/UiContainer" instance=ExtResource("8_7sqh0")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
-script = null
 
 [node name="GroceryList" parent="CanvasLayer" instance=ExtResource("9_0pcle")]
 unique_name_in_owner = true
