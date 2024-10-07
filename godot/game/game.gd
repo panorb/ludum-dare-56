@@ -5,7 +5,7 @@ signal show_win_screen
 
 var base_levels : Array[PackedScene] = []
 
-var current_level = null
+var current_level: LDTKLevel = null
 var construction_state = null
 var simulation_state = null
 var running = false

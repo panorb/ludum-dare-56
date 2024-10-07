@@ -16,7 +16,7 @@ var _possible_entities = {
 	"Thrower": preload("res://entities/thrower.tscn"),
 }
 
-func create(level):
+func create(level:LDTKLevel):
 	_level = level
 	_level_entities = []
 	_level_items = []
@@ -27,12 +27,15 @@ func create(level):
 		
 		match identifier:
 			"Item":
-				var item_type = entity_dict["fields"]["ItemType"]
+				var item_type : String = entity_dict["fields"]["ItemType"].substr(9)
 				var count = entity_dict["fields"]["Count"]
 				
 				print("Item " + str(item_type) + " x " + str(count))
-				var item_node : Item = base_item_scene.instantiate()
+				var item_node : BaseItem = base_item_scene.instantiate()
 				item_node.position = Vector2(entity_dict.position) + Vector2(0.5, 1) * Globals.TILE_SIZE
+				item_node.item_type = BaseItem.ITEM_TYPE.get(item_type)
+				item_node.count = count
+				
 				level.get_node("Entities").add_child(item_node)
 				_level_items.append(item_node)
 			_:
