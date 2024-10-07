@@ -51,6 +51,7 @@ func clone() -> BaseItem:
 	new_item.current_state = new_item.states.get_node("StateNormal")
 	new_item.simulation_state = simulation_state
 	new_item.actual_position = actual_position
+	new_item.position = self.position
 
 	return new_item
 

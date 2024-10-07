@@ -3,7 +3,10 @@ class_name Game extends Node
 signal show_lose_screen
 signal show_win_screen
 
+
 var base_levels : Array[PackedScene] = []
+
+var debug_mode: bool = true
 
 var current_level: LDTKLevel = null
 var construction_state: ConstructionState = null
@@ -45,7 +48,7 @@ func start_simulation():
 	construction_state.hide()
 	if simulation_state != null:
 		simulation_state.queue_free()
-	simulation_state = construction_state.create_simulation_state()
+	simulation_state = construction_state.create_simulation_state(debug_mode)
 	simulation_state.scale = construction_state.scale
 	add_child(simulation_state)
 	running = true

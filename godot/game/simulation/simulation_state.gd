@@ -7,15 +7,17 @@ var level_structure : Array # [[ int ]]
 
 var tick_time = 0.0
 var current_tick = 0
+var debug_mode = false
 
 enum LEVEL_BLOCK { AIR = 0, WALL = 400 }
 
 const TICKS_PER_SECOND = 4
 
-func create(width, height, level, entities, items):
+func create(width, height, level, entities, items, debug_mode: bool = false):
 	items_now = _init_structure(width, height, true)
 	entities_now = _init_structure(width, height)
 	level_structure = _init_structure(width, height)
+	self.debug_mode = debug_mode
 	
 	# TODO: Adjust as necessary
 	var tilemap = level.get_node("Structure")
@@ -51,10 +53,16 @@ func _init_structure(width: int, height: int, array: bool = false) -> Array:
 	return res
 
 func _process(delta: float) -> void:
-	tick_time -= delta
-	if tick_time < 0:
-		step_forward()
-		tick_time += (1.0/TICKS_PER_SECOND)
+	tick_time += delta
+	if tick_time > 1.0 / TICKS_PER_SECOND:
+		if debug_mode:
+			print("Waiting for step forward (right arrow)")
+			if Input.is_action_just_pressed("ui_right"):
+				step_forward()
+				tick_time = 0
+		else:
+			step_forward()
+			tick_time = 0
 	
 	for ticker in get_tree().get_nodes_in_group("tickers"):
 		ticker.update(delta, tick_time)

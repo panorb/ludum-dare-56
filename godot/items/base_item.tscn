@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkujsleu56b2j"]
 
 [ext_resource type="Script" path="res://items/base_item.gd" id="1_k88xb"]
-[ext_resource type="Texture2D" uid="uid://dhctwdhhwb255" path="res://items/items.png" id="2_554yt"]
+[ext_resource type="Texture2D" uid="uid://dhctwdhhwb255" path="res://items/Items.png" id="2_554yt"]
 [ext_resource type="Script" path="res://items/state_normal.gd" id="3_pygo4"]
 [ext_resource type="Script" path="res://items/state_thrown.gd" id="4_hm4aw"]
 

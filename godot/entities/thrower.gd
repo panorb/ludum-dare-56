@@ -17,6 +17,8 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 			items_future[y][x] = item
 			var thrown_item = item.clone()
 			thrown_item.count = 1
-			items_future[y-1][x] = thrown_item
+			thrown_item.actual_position = actual_position
+			thrown_item.actual_position.x += 1
+			items_future[y][x+1] = thrown_item
 			thrown_item.throw();
 	move_to(x, y, entities_future)

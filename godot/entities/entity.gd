@@ -12,7 +12,11 @@ func easing_function(x: float) -> float:
 	return x
 
 func update(delta: float, tick_time: float) -> void:
-	position = actual_position + (target_position - actual_position) * easing_function((((1.0/SimulationState.TICKS_PER_SECOND)-tick_time)/(1.0/SimulationState.TICKS_PER_SECOND)))
+	var expected_tick_length = 1.0 / SimulationState.TICKS_PER_SECOND
+	var progress = tick_time / expected_tick_length
+	progress = max(0, min(1, progress))
+
+	position = actual_position + (target_position - actual_position) * easing_function(progress)
 
 func _step_internal(tick, x, y, items_future, entities_now, entities_future, level_structure):
 	if tick > _processed_tick:
