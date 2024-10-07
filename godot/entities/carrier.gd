@@ -42,6 +42,9 @@ func pickup(item):
 		return false
 	$CarriedItem.visible = true
 	$CarriedItem.item_type = item.item_type
+	
+	%PickupAudioStreamPlayer.play()
+	
 	return true
 
 func swap(item_to_receive, other_swapper, initiated_on_this_entity:bool):
