@@ -13,16 +13,18 @@ var construction_state: ConstructionState = null
 var simulation_state: SimulationState = null
 var running: bool = false
 
+var current_selected_entity_name: String
+
 @onready var level_left_top := %LevelLeftTopNode2D
 @onready var level_right_bottom :=  %LevelRightBottomNode2D
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for level_file in DirAccess.get_files_at("res://game/levels"):
 		base_levels.append(load("res://game/levels/" + level_file))
 	start_level(1)
-
+	
+	%SelectBoard.entity_pressed.connect(self._on_entity_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,3 +59,9 @@ func stop_simulation():
 	construction_state.show()
 	simulation_state.queue_free()
 	running = false
+
+func _on_entity_pressed(entity_name: String):
+	if self.current_selected_entity_name == entity_name:
+		self.current_selected_entity_name = ''
+	else:
+		self.current_selected_entity_name = entity_name
