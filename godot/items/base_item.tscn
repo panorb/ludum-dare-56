@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkujsleu56b2j"]
 
 [ext_resource type="Script" path="res://items/base_item.gd" id="1_k88xb"]
-[ext_resource type="Texture2D" uid="uid://cth22is1ekexq" path="res://items/items.png" id="2_y7p5l"]
+[ext_resource type="Texture2D" uid="uid://dhctwdhhwb255" path="res://items/items.png" id="2_554yt"]
 [ext_resource type="Script" path="res://items/state_normal.gd" id="3_pygo4"]
 [ext_resource type="Script" path="res://items/state_thrown.gd" id="4_hm4aw"]
 
@@ -12,31 +12,31 @@ script = ExtResource("1_k88xb")
 position = Vector2(0, 16)
 
 [node name="Sprite3" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_y7p5l")
+texture = ExtResource("2_554yt")
 offset = Vector2(0, -32)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Sprite2" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_y7p5l")
+texture = ExtResource("2_554yt")
 offset = Vector2(0, -24)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Sprite4" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_y7p5l")
+texture = ExtResource("2_554yt")
 offset = Vector2(-8, -16)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Sprite1" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_y7p5l")
+texture = ExtResource("2_554yt")
 offset = Vector2(0, -16)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Sprite5" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_y7p5l")
+texture = ExtResource("2_554yt")
 offset = Vector2(8, -16)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
