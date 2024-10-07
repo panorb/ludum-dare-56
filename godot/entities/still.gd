@@ -25,8 +25,8 @@ func _ready() -> void:
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	if self.current_item_typ != null:
 		if self.current_item_steps <= 0:
+			%ProducingAudioStreamPlayer.play()
 			var spawning_item_type = self.recipes[self.current_item_typ]
-			#items_future[y][x-1] = self.current_item_typ
 			self.spawn_item(x+1, y, items_future, spawning_item_type)
 			self.current_item_steps = RESULT_STEPS
 			self.current_item_typ = null
@@ -38,6 +38,7 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 			var handling_item_type = handling_item.item_type
 			var can_use_item = recipes.has(handling_item_type)
 			if can_use_item:
+				%WorkingAudioStreamPlayer.play()
 				self.current_item_typ = handling_item_type
 				self.current_item_steps = 4
 			handling_item.queue_free()

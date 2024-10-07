@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://pgb8jrmjtwrs"]
+[gd_scene load_steps=5 format=3 uid="uid://pgb8jrmjtwrs"]
 
 [ext_resource type="Script" path="res://entities/still.gd" id="1_ja1nk"]
 [ext_resource type="Texture2D" uid="uid://dne64oruenerg" path="res://entities/still.png" id="2_wow6e"]
+[ext_resource type="AudioStream" uid="uid://cxwb3c2svf0sl" path="res://entities/machine_working.ogg" id="3_0o8xi"]
+[ext_resource type="AudioStream" uid="uid://b061u58jf7l5d" path="res://entities/still_produce.ogg" id="4_v7o87"]
 
 [node name="Still" type="Node2D" groups=["tickers"]]
 script = ExtResource("1_ja1nk")
@@ -10,3 +12,11 @@ script = ExtResource("1_ja1nk")
 position = Vector2(0, -32)
 texture = ExtResource("2_wow6e")
 offset = Vector2(16, 0)
+
+[node name="WorkingAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_0o8xi")
+
+[node name="ProducingAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_v7o87")
