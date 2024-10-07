@@ -14,12 +14,22 @@ var base_item_scene : PackedScene = preload("res://items/base_item.tscn")
 var _possible_entities = {
 	"Carrier": preload("res://entities/carrier.tscn"),
 	"Thrower": preload("res://entities/thrower.tscn"),
+	"Spawner": preload("res://entities/spawner.tscn"),
+	"Dropper": preload("res://entities/dropper.tscn")
 }
+
+signal level_constraints_update(item_target_counts: Array, entity_available_counts: Array, additional_info: String)
 
 func create(level:LDTKLevel, left_top_position: Node2D, right_bottom_position: Node2D):
 	_level = level
 	_level_entities = []
 	_level_items = []
+	
+	var item_target_counts : Array = level.fields["ItemTargetCounts"]
+	var entity_available_counts : Array = level.fields["EntityAvailableCounts"]
+	var additional_info : String = level.fields["AdditionalInfo"]
+	
+	level_constraints_update.emit(item_target_counts, entity_available_counts, additional_info)
 	
 	var entities_node = level.get_node("Entities")
 	for entity_dict in entities_node.entities:

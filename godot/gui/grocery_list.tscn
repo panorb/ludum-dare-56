@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2k7qryn33w5t"]
+[gd_scene load_steps=4 format=3 uid="uid://d2k7qryn33w5t"]
 
 [ext_resource type="Theme" uid="uid://bnrbravm05c03" path="res://gui/grocery_list_theme.tres" id="1_0bljb"]
 [ext_resource type="PackedScene" uid="uid://wfral8vl7o7w" path="res://gui/grocery_item.tscn" id="1_pm7s7"]
+[ext_resource type="Script" path="res://gui/grocery_list.gd" id="2_qtr61"]
 
 [node name="GroceryList" type="Control"]
 layout_mode = 3
@@ -18,6 +19,7 @@ grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme = ExtResource("1_0bljb")
+script = ExtResource("2_qtr61")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -55,10 +57,22 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 text = "Please throw the following ingredients into my cauldron:
 "
 autowrap_mode = 2
 
-[node name="GroceryItem" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_pm7s7")]
+[node name="GroceryItems" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="GroceryItem" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer/GroceryItems" instance=ExtResource("1_pm7s7")]
+layout_mode = 2
+
+[node name="AdditionalInfoLabel" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+text = "test test test test test test test test test"
+autowrap_mode = 2

@@ -29,7 +29,7 @@ texture_filter = 1
 script = ExtResource("1_4aq2a")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.585062, 0.585062, 0.585062, 1)
+modulate = Color(0.329929, 0.668311, 0.446672, 1)
 texture_repeat = 2
 scale = Vector2(2, 2)
 texture = ExtResource("2_0qe6m")
@@ -80,6 +80,7 @@ layout_mode = 2
 script = null
 
 [node name="GroceryList" parent="CanvasLayer" instance=ExtResource("9_0pcle")]
+unique_name_in_owner = true
 
 [node name="LevelLeftTopNode2D" type="Node2D" parent="."]
 unique_name_in_owner = true
