@@ -23,6 +23,14 @@ var _possible_entities = {
 
 signal level_constraints_update(item_target_counts: Array, entity_available_counts: Array, additional_info: String)
 
+var selected_entity_name: String
+
+# extra tilemap to layer ofer level tilemap
+# this tilemap holds the not insertet entity from player
+#var creation_entity_tilemap: 
+
+#func _
+
 func create(level:LDTKLevel, left_top_position: Node2D, right_bottom_position: Node2D):
 	_level = level
 	_level_entities = []
@@ -73,7 +81,15 @@ func create(level:LDTKLevel, left_top_position: Node2D, right_bottom_position: N
 	
 	add_child(level)
 
+# try to implement add a entity
+#func _input(event: InputEvent) -> void:
+#    if(event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT):
+#		event.position
+
 func create_simulation_state(debug_mode: bool = false) -> SimulationState:
 	var sim_state:SimulationState = simulation_state.instantiate()
 	sim_state.create(_level_size[0], _level_size[1], _level, _level_entities + _player_entities, _level_items, debug_mode)
 	return sim_state
+
+func set_selected_entity_name(entity_name: String):
+	self.selected_entity 

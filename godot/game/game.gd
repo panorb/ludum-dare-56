@@ -69,3 +69,5 @@ func _on_entity_pressed(entity_name: String):
 		self.current_selected_entity_name = ''
 	else:
 		self.current_selected_entity_name = entity_name
+
+	construction_state.set_selected_entity_name(entity_name)
