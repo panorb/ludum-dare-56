@@ -4,6 +4,7 @@ signal show_levels
 signal change_language
 signal sfx_value_changed
 signal music_value_changed
+signal show_credits
 
 @onready var level_button := %LevelButton
 @onready var credits_button := %CreditsButton
@@ -20,6 +21,7 @@ signal music_value_changed
 
 func _ready() -> void:
 	level_button.pressed.connect(_emit_show_levels);
+	%CreditsButton.pressed.connect(func(): show_credits.emit())
 	select_english_button.pressed.connect(func(): change_language.emit('en'))
 	select_german_button.pressed.connect(func(): change_language.emit('de'))
 	

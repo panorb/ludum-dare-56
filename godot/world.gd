@@ -5,6 +5,7 @@ const GAME_SCENE := 'game'
 const LEVEL_SCENE := 'level'
 const LOSE_SCENE := 'lose'
 const WIN_SCENE := 'win'
+const CREDITS_SCENE := 'credits'
 
 const LANGUAGE_ENGLISH := 'en'
 const LANGUAGE_GERMAN := 'de'
@@ -21,6 +22,7 @@ var scenes : Dictionary = {
 	MAIN_MENU_SCENE: preload('res://gui/main_menu.tscn'),
 	GAME_SCENE: preload('res://game/game.tscn'),
 	LEVEL_SCENE: preload('res://gui/level_menu/level_scene.tscn'),
+	CREDITS_SCENE: preload("res://gui/credits/credits.tscn"),
 	LOSE_SCENE: null, #preload('res://gui/end_screen/lose/lose_screen.tscn'),
 	WIN_SCENE: null, # preload("res://gui/end_screen/win/win_screen.tscn"),
 }
@@ -87,6 +89,7 @@ func _on_show_main_menu() -> MainMenu:
 	main_menu_scene.sfx_value_changed.connect(func(volume_percent: float): self.sfx_sound_value=volume_percent)
 	main_menu_scene.music_value_changed.connect(func(volume_percent: float): self.music_sound_value=volume_percent)
 	main_menu_scene.show_levels.connect(_on_show_select_level)
+	main_menu_scene.show_credits.connect(self._on_show_credits)
 	
 	return main_menu_scene
 
@@ -114,3 +117,10 @@ func _on_show_select_level() -> LevelScene:
 	level_select_scene.unlock_level_till.connect(func(unlocking_level): self.level = max(self.level,unlocking_level))
 
 	return level_select_scene
+	
+func _on_show_credits() -> CreditsScene:
+	var credits_scene = self._set_current_scene(CREDITS_SCENE) as CreditsScene
+
+	credits_scene.show_main_menu.connect(self._on_show_main_menu)
+
+	return credits_scene
