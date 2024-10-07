@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c17krfs5denn3"]
+[gd_scene load_steps=6 format=3 uid="uid://c17krfs5denn3"]
 
+[ext_resource type="Script" path="res://game/ui/ui.gd" id="1_2e1kh"]
 [ext_resource type="Texture2D" uid="uid://dgf3hxpn4xw0s" path="res://game/ui/board.svg" id="1_7fd06"]
 [ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_mvdda"]
+[ext_resource type="Script" path="res://game/ui/thrower_texture_rect.gd" id="4_tt335"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84vjl"]
 atlas = ExtResource("2_mvdda")
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2e1kh")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -23,23 +26,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+[node name="BoardTextureRect" type="TextureRect" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_7fd06")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/BoardTextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 23.0
-offset_top = 24.0
+offset_top = 16.0
 offset_right = -26.0
-offset_bottom = -23.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/TextureRect/HBoxContainer"]
+[node name="ThrowerTextureRect" type="TextureRect" parent="CenterContainer/BoardTextureRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_84vjl")
 expand_mode = 3
+script = ExtResource("4_tt335")
