@@ -54,4 +54,3 @@ flip_h = true
 [node name="CarriedItem" parent="." instance=ExtResource("3_y58p5")]
 visible = false
 position = Vector2(0, -24)
-never_free = true

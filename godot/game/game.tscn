@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=13 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://dccxl82aac16m" path="res://game/wall.png" id="2_0qe6m"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c17krfs5denn3" path="res://game/ui/ui.tscn" id="8_7sqh0"]
 [ext_resource type="Texture2D" uid="uid://btj3kooqgemyp" path="res://game/pot2.png" id="8_kpw31"]
 [ext_resource type="PackedScene" uid="uid://d2k7qryn33w5t" path="res://gui/grocery_list.tscn" id="9_0pcle"]
+[ext_resource type="PackedScene" uid="uid://cb1nnjdj57prl" path="res://game/construction.tscn" id="9_x5iye"]
+[ext_resource type="PackedScene" uid="uid://cvrrpjye73g8e" path="res://game/simulation.tscn" id="10_mrt7p"]
+[ext_resource type="PackedScene" uid="uid://dfw7di3xqn3gr" path="res://game/levels/Level_0.scn" id="11_fjuqa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntuat"]
 animations = [{
@@ -81,3 +84,10 @@ unique_name_in_owner = true
 [node name="LevelRightBottomNode2D" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1242, 395)
+
+[node name="Construction" parent="." instance=ExtResource("9_x5iye")]
+
+[node name="Simulation" parent="." instance=ExtResource("10_mrt7p")]
+
+[node name="Level_0" parent="." instance=ExtResource("11_fjuqa")]
+scale = Vector2(1.515, 1.515)
