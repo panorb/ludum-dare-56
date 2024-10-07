@@ -16,7 +16,6 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 func update_displayed_item():
 	var texture_region : Rect2i
 	
-	print(item_type)
 	if item_type <= ITEM_TYPE.POMEGRANATE_SEEDS: # Sprites
 		texture_region = Rect2i(item_type * 32, 0, 32, 32)
 	elif item_type <= ITEM_TYPE.POMEGRANATE_ESSENCE: # Thick flasks
