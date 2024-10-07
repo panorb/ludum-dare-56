@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=11 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://dccxl82aac16m" path="res://game/wall.png" id="2_0qe6m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bfmhrdwj70crk" path="res://game/pot1.png" id="7_u3gbj"]
 [ext_resource type="PackedScene" uid="uid://c17krfs5denn3" path="res://game/ui/ui.tscn" id="8_7sqh0"]
 [ext_resource type="Texture2D" uid="uid://btj3kooqgemyp" path="res://game/pot2.png" id="8_kpw31"]
+[ext_resource type="PackedScene" uid="uid://d2k7qryn33w5t" path="res://gui/grocery_list.tscn" id="9_0pcle"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntuat"]
 animations = [{
@@ -75,6 +76,8 @@ stretch_mode = 3
 [node name="Ui" parent="CanvasLayer/UiContainer" instance=ExtResource("8_7sqh0")]
 clip_contents = true
 layout_mode = 2
+
+[node name="GroceryList" parent="CanvasLayer" instance=ExtResource("9_0pcle")]
 
 [node name="LevelLeftTopNode2D" type="Node2D" parent="."]
 unique_name_in_owner = true

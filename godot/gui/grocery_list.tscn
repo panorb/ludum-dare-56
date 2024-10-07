@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2k7qryn33w5t"]
+
+[ext_resource type="Theme" uid="uid://bnrbravm05c03" path="res://gui/grocery_list_theme.tres" id="1_0bljb"]
+[ext_resource type="PackedScene" uid="uid://wfral8vl7o7w" path="res://gui/grocery_item.tscn" id="1_pm7s7"]
+
+[node name="GroceryList" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_0bljb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -125.0
+offset_bottom = 125.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+color = Color(0.984314, 0.988235, 0.921569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Please throw the following ingredients into my cauldron:
+"
+autowrap_mode = 2
+
+[node name="GroceryItem" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_pm7s7")]
+layout_mode = 2
