@@ -16,7 +16,7 @@ var _possible_entities = {
 	"Thrower": preload("res://entities/thrower.tscn"),
 }
 
-func create(level):
+func create(level:LDTKLevel):
 	_level = level
 	_level_entities = []
 	_level_items = []
