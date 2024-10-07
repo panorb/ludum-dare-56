@@ -14,7 +14,8 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 	
 	if items_future[y][x] != null:
 		pickup(items_future[y][x])
-		items_future[y][x].count = 0
+		items_future[y][x].queue_free()
+		items_future[y][x] = null
 	
 	var other_entity = entities_now[y][next_x]
 	if other_entity == null:
@@ -34,18 +35,13 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 		$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 
 func pickup(item):
-	if item == null:
-		$CarriedItem.visible = false
-	else:
-		$CarriedItem.visible = true
-		$CarriedItem.item_type = item.item_type
-		$CarriedItem.count = item.count
+	$CarriedItem.visible = true
+	$CarriedItem.item_type = item.item_type
 
 func swap(item_to_receive, other_swapper, initiated_on_this_entity:bool):
 	if initiated_on_this_entity:
 		var item_to_send = {
 			item_type = $CarriedItem.item_type,
-			count = $CarriedItem.count,
 			visible = $CarriedItem.visible
 		}
 

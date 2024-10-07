@@ -8,36 +8,10 @@
 [node name="BaseItem" type="Node2D" groups=["tickers"]]
 script = ExtResource("1_k88xb")
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 16)
-
-[node name="Sprite3" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_554yt")
-offset = Vector2(0, -32)
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
-[node name="Sprite2" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_554yt")
-offset = Vector2(0, -24)
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
-[node name="Sprite4" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_554yt")
-offset = Vector2(-8, -16)
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
-[node name="Sprite1" type="Sprite2D" parent="Sprites"]
 texture = ExtResource("2_554yt")
 offset = Vector2(0, -16)
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
-[node name="Sprite5" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("2_554yt")
-offset = Vector2(8, -16)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 

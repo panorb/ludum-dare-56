@@ -9,7 +9,6 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 	POMEGRANATE_ESSENCE, MEAD, JEWEL_JUICE, POMEGRANATE_LIQUEUR }
 
 @export var item_type : ITEM_TYPE = ITEM_TYPE.HONEYCOMBS
-@export var count : int = 1
 
 @onready var sprite_container : Node2D = $Sprites
 
@@ -17,15 +16,7 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 
 func update_displayed_item():
 	var texture_region := Rect2i(item_type * 32, 0, 32, 32)
-	
-	for i in range(5):
-		var sprite_node : Sprite2D = sprite_container.get_node("Sprite" + str(i + 1))
-		if i >= count:
-			sprite_node.visible = false
-		sprite_node.region_rect = texture_region
-	
-	if not never_free and count == 0:
-		queue_free()
+	$Sprite2D.region_rect = texture_region
 
 func easing_function(x: float) -> float:
 	return x
@@ -40,7 +31,6 @@ func _ready() -> void:
 		state.initialize(self)
 		state.done.connect(_on_state_done)
 	
-
 func _on_state_done():
 	current_state = $States/StateNormal
 
