@@ -16,14 +16,7 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 @export var never_free : bool = false
 
 func update_displayed_item():
-	var texture_region : Rect2i
-	
-	if item_type <= ITEM_TYPE.POMEGRANATE_SEEDS: # Sprites
-		texture_region = Rect2i(item_type * 32, 0, 32, 32)
-	elif item_type <= ITEM_TYPE.POMEGRANATE_ESSENCE: # Thick flasks
-		pass
-	else: # Thin flasks
-		pass
+	var texture_region := Rect2i(item_type * 32, 0, 32, 32)
 	
 	for i in range(5):
 		var sprite_node : Sprite2D = sprite_container.get_node("Sprite" + str(i + 1))
