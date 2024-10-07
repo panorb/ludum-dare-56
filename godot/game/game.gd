@@ -9,9 +9,7 @@ var base_levels : Array[PackedScene] = []
 var debug_mode: bool = true
 
 var current_level: LDTKLevel = null
-
-# var construction_state = null
-var simulation_state: SimulationState = null
+var simulation_state = null
 var running: bool = false
 
 @onready var level_left_top := %LevelLeftTopNode2D

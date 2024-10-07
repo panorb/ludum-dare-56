@@ -24,16 +24,14 @@ func create(width, height, level, entities, items, debug_mode: bool = false):
 	add_child(tilemap.duplicate())
 	
 	for entity in entities:
-		var cloned_entity: Entity = entity.duplicate()
+		var cloned_entity = entity.duplicate()
 		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
 		entities_now[int(entity.position.y / Globals.TILE_SIZE) - 1][int(entity.position.x / Globals.TILE_SIZE)] = cloned_entity
-		cloned_entity.simulation_state = self
 		add_child(cloned_entity)
 	for item in items:
 		var cloned_item = item.duplicate()
 		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
 		items_now[int(item.position.y / Globals.TILE_SIZE) - 1][int(item.position.x / Globals.TILE_SIZE)] = cloned_item
-		cloned_item.simulation_state = self
 		add_child(cloned_item)
 	
 	for tile_row in range(level_structure.size()):

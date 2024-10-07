@@ -4,8 +4,6 @@ extends Item
 @onready var current_state : ItemState = $States/StateNormal
 @onready var states = $States
 
-var simulation_state : SimulationState
-
 enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, HONEY, SAPHIRE_DUST,
 	POMEGRANATE_SEEDS, HONEY_ESSENCE, SAPHIRE_ESSENCE, FROG_ESSENCE, CHICKEN_ESSENCE, BEETLE_ESSENCE,
 	POMEGRANATE_ESSENCE, MEAD, JEWEL_JUICE, POMEGRANATE_LIQUEUR }
@@ -41,19 +39,7 @@ func _ready() -> void:
 	for state in states.get_children():
 		state.initialize(self)
 		state.done.connect(_on_state_done)
-func clone() -> BaseItem:
-	# use preload.instance() to create a new instance of this item
-	var new_item = preload("res://items/base_item.tscn").instantiate()
-	self.simulation_state.add_child(new_item)
-
-	new_item.item_type = item_type
-	new_item.count = count
-	new_item.current_state = new_item.states.get_node("StateNormal")
-	new_item.simulation_state = simulation_state
-	new_item.actual_position = actual_position
-	new_item.position = self.position
-
-	return new_item
+	
 
 func _on_state_done():
 	current_state = $States/StateNormal
