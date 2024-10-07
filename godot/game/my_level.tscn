@@ -151,6 +151,6 @@ shape = SubResource("RectangleShape2D_ktnq0")
 [node name="Construction" parent="." instance=ExtResource("9_vff23")]
 
 [node name="Carrier" parent="Construction" instance=ExtResource("11_pa4kh")]
-position = Vector2(175.168, 168)
+position = Vector2(246.828, 176)
 
 [node name="Simulation" parent="." instance=ExtResource("10_7gy18")]

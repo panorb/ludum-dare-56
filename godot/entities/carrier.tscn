@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbrhpj8rys6b7"]
+[gd_scene load_steps=11 format=3 uid="uid://bbrhpj8rys6b7"]
 
 [ext_resource type="Script" path="res://entities/carrier.gd" id="1_prkde"]
 [ext_resource type="Texture2D" uid="uid://1rn2st6aiesi" path="res://entities/carrier.png" id="2_krvfn"]
 [ext_resource type="PackedScene" uid="uid://bkujsleu56b2j" path="res://items/base_item.tscn" id="3_y58p5"]
+[ext_resource type="Texture2D" uid="uid://cfisiwojfbp85" path="res://icon.svg" id="4_pq0r4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8f3u"]
 atlas = ExtResource("2_krvfn")
@@ -40,17 +41,34 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Carrier" type="Node2D" groups=["tickers"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kt3d"]
+radius = 5.6778
+
+[node name="Carrier" type="CharacterBody2D" groups=["tickers"]]
 script = ExtResource("1_prkde")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.64, 1.64)
 sprite_frames = SubResource("SpriteFrames_52qvs")
 animation = &"move"
 autoplay = "move"
 frame_progress = 0.851924
 offset = Vector2(0, -8)
-flip_h = true
 
 [node name="CarriedItem" parent="." instance=ExtResource("3_y58p5")]
 visible = false
 position = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(2.54585, 2.54585)
+shape = SubResource("CircleShape2D_7kt3d")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -10)
+target_position = Vector2(37, 29)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -13)
+scale = Vector2(-0.12, 0.0399995)
+texture = ExtResource("4_pq0r4")

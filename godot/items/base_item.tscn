@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkujsleu56b2j"]
+[gd_scene load_steps=4 format=3 uid="uid://bkujsleu56b2j"]
 
 [ext_resource type="Script" path="res://items/base_item.gd" id="1_k88xb"]
 [ext_resource type="Texture2D" uid="uid://ky0rm5mfvbed" path="res://items/items.png" id="2_554yt"]
-[ext_resource type="Script" path="res://items/state_normal.gd" id="3_pygo4"]
-[ext_resource type="Script" path="res://items/state_thrown.gd" id="4_hm4aw"]
 
-[node name="BaseItem" type="Node2D" groups=["tickers"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwbeb"]
+radius = 16.0312
+
+[node name="BaseItem" type="CharacterBody2D" groups=["tickers"]]
 script = ExtResource("1_k88xb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,10 +16,5 @@ offset = Vector2(0, -16)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="States" type="Node" parent="."]
-
-[node name="StateNormal" type="Node" parent="States"]
-script = ExtResource("3_pygo4")
-
-[node name="StateThrown" type="Node" parent="States"]
-script = ExtResource("4_hm4aw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vwbeb")
