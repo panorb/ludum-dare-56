@@ -17,3 +17,4 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 	else:
 		move_to(x, y, entities_future)
 		direction *= -1
+		$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h

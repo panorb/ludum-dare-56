@@ -21,7 +21,6 @@ func create(level):
 	
 	var entities_node = level.get_node("Entities")
 	for entity_dict in entities_node.entities:
-		print(entity_dict)
 		var identifier = entity_dict["identifier"]
 		
 		match identifier:
@@ -30,7 +29,7 @@ func create(level):
 			_:
 				var entity_scene : PackedScene = _possible_entities[identifier]
 				var entity_node : Entity = entity_scene.instantiate()
-				entity_node.position = Vector2(entity_dict.position) # + Vector2(0.5, 1) * Globals.TILE_SIZE
+				entity_node.position = Vector2(entity_dict.position) + Vector2(0.5, 1) * Globals.TILE_SIZE
 				level.get_node("Entities").add_child(entity_node)
 				_level_entities.append(entity_node)
 	

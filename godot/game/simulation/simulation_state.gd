@@ -27,12 +27,14 @@ func create(width, height, level, entities, items):
 	
 	for entity in entities:
 		var cloned_entity = entity.duplicate()
-		entities_now[int(entity.position[1] / Globals.TILE_SIZE)][int(entity.position[0] / Globals.TILE_SIZE)] = cloned_entity
+		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
+		entities_now[int(entity.position.y / Globals.TILE_SIZE) - 1][int(entity.position.x / Globals.TILE_SIZE)] = cloned_entity
 		add_child(cloned_entity)
 		ticking_things.append(cloned_entity)
 	for item in items:
 		var cloned_item = item.duplicate()
-		items_now[int(item.position[1] / Globals.TILE_SIZE)][int(item.position[0] / Globals.TILE_SIZE)].append(cloned_item)
+		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
+		items_now[int(item.position.y / Globals.TILE_SIZE) - 1][int(item.position.x / Globals.TILE_SIZE)].append(cloned_item)
 		add_child(cloned_item)
 		ticking_things.append(cloned_item)
 	
