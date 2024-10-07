@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhd57fsi7804"]
 
-[ext_resource type="Script" path="res://entities/thrower.gd" id="1_it445"]
-[ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_uamld"]
+[ext_resource type="Script" path="res://entities/spawner.gd" id="1_o8jhx"]
+[ext_resource type="Texture2D" uid="uid://bqrwl6up78nj0" path="res://entities/spawner.png" id="2_t0l3g"]
 
 [node name="Spawner" type="Node2D" groups=["tickers"]]
-script = ExtResource("1_it445")
+script = ExtResource("1_o8jhx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("2_uamld")
+texture = ExtResource("2_t0l3g")

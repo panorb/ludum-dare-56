@@ -6,6 +6,11 @@ var target_position = Vector2(0, 0)
 
 var _processed_tick : int = -1
 
+var simulation_state : SimulationState = null
+
+func set_simulation_state(simulation_state: SimulationState):
+	self.simulation_state = simulation_state
+
 func easing_function(x: float) -> float:
 	return x
 
@@ -22,10 +27,16 @@ func _step_internal(tick, x, y, items_future, entities_now, entities_future, lev
 		_processed_tick = tick
 
 func is_free(x, y, entities_now, entities_future):
-	return entities_now[y][x] == null and entities_future[y][x] == null
+	return (entities_now[y][x] == null and entities_future[y][x] == null) 
 
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	pass
+
+func spawn_item(x, y, items_future, item_type):
+	items_future[y][x] = simulation_state.spawn_item(Vector2i(x, y), item_type)
+
+func is_valid_lay_place():
+	return false
 
 func move_to(x, y, entities_future):
 	entities_future[y][x] = self

@@ -24,10 +24,12 @@ func create(width, height, level, entities, items, debug_mode: bool = false):
 	add_child(tilemap.duplicate())
 	
 	for entity in entities:
-		var cloned_entity = entity.duplicate()
+		var cloned_entity : Entity = entity.duplicate()
 		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
 		entities_now[int(entity.position.y / Globals.TILE_SIZE) - 1][int(entity.position.x / Globals.TILE_SIZE)] = cloned_entity
 		add_child(cloned_entity)
+		cloned_entity.set_simulation_state(self)
+		# cloned_entity.request_item_spawn.connect(_on_request_item_spawn)
 	for item in items:
 		var cloned_item = item.duplicate()
 		# Bitte fragt mich niemals warum wir hier für die y-Position - 1 rechnen müssen... ICH WEISS ES NICHT! -P
@@ -39,6 +41,14 @@ func create(width, height, level, entities, items, debug_mode: bool = false):
 			level_structure[tile_row][tile_column] = LEVEL_BLOCK.AIR
 			if tilemap.get_cell_source_id(Vector2i(tile_column, tile_row)) >= 0:
 				level_structure[tile_row][tile_column] = LEVEL_BLOCK.WALL
+
+@onready var base_item_scene : PackedScene = preload("res://items/base_item.tscn")
+
+func spawn_item(position: Vector2i, item_type: BaseItem.ITEM_TYPE):
+	var item_node = base_item_scene.instantiate()
+	item_node.position = (Vector2(position) + Vector2(0.5, 0.5)) * Globals.TILE_SIZE
+	add_child(item_node)
+	return item_node
 
 func _init_structure(width: int, height: int, array: bool = false) -> Array:
 	var res = []
@@ -54,7 +64,7 @@ func _process(delta: float) -> void:
 	tick_time += delta
 	if tick_time > 1.0 / TICKS_PER_SECOND:
 		if debug_mode:
-			print("Waiting for step forward (right arrow)")
+			# print("Waiting for step forward (right arrow)")
 			if Input.is_action_just_pressed("ui_right"):
 				step_forward()
 				tick_time = 0

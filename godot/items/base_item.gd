@@ -10,7 +10,7 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 
 @export var item_type : ITEM_TYPE = ITEM_TYPE.HONEYCOMBS
 
-@onready var sprite_container : Node2D = $Sprites
+# @onready var sprite_container : Node2D = $Sprites
 
 @export var never_free : bool = false
 

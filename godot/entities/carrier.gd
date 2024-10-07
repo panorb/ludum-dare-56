@@ -12,14 +12,17 @@ func _ready() -> void:
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	var next_x = x+direction
 	
-	if items_future[y][x] != null:
-		pickup(items_future[y][x])
+	if items_future[y][x] != null and pickup(items_future[y][x]):
 		items_future[y][x].queue_free()
 		items_future[y][x] = null
 	
-	var other_entity = entities_now[y][next_x]
+	var other_entity : Entity = entities_now[y][next_x]
 	if other_entity == null:
 		other_entity = entities_future[y][next_x]
+	
+	if other_entity != null and other_entity.is_valid_lay_place():
+		spawn_item(next_x, y, items_future, $CarriedItem.item_type)
+		$CarriedItem.visible = false
 	
 	if other_entity != null  \
 		and direction == 1 \
@@ -35,8 +38,11 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 		$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 
 func pickup(item):
+	if $CarriedItem.visible:
+		return false
 	$CarriedItem.visible = true
 	$CarriedItem.item_type = item.item_type
+	return true
 
 func swap(item_to_receive, other_swapper, initiated_on_this_entity:bool):
 	if initiated_on_this_entity:

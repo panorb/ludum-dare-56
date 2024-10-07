@@ -5,6 +5,9 @@ func _ready() -> void:
 	target_position = position
 	actual_position = position
 
+func is_valid_lay_place():
+	return true
+
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	if items_future[y][x] != null:
 		var item = items_future[y][x]
