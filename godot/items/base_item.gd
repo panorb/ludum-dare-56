@@ -3,6 +3,13 @@ extends Item
 @onready var current_state : ItemState = $States/StateNormal
 @onready var states = $States
 
+enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, HONEY, SAPHIRE_DUST,
+	POMEGRANATE_SEEDS, HONEY_ESSENCE, SAPHIRE_ESSENCE, FROG_ESSENCE, CHICKEN_ESSENCE, BEETLE_ESSENCE,
+	POMEGRANATE_ESSENCE, MEAD, JEWEL_JUICE, POMEGRANATE_LIQUEUR }
+
+@export var item_type : ITEM_TYPE = ITEM_TYPE.HONEYCOMBS
+@export var count : int = 1
+
 func easing_function(x: float) -> float:
 	return x
 

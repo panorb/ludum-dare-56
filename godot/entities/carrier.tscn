@@ -46,6 +46,8 @@ script = ExtResource("1_prkde")
 sprite_frames = SubResource("SpriteFrames_52qvs")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.160413
+frame_progress = 0.660354
 offset = Vector2(0, -8)
 flip_h = true
+
+[node name="CarriedItem" type="Node2D" parent="."]
