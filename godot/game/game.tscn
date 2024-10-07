@@ -47,11 +47,12 @@ position = Vector2(603, 91)
 texture = ExtResource("4_uijuu")
 
 [node name="ConstructionState" type="Node2D" parent="."]
+scale = Vector2(1.6, 1.6)
 script = ExtResource("3_k030l")
 
 [node name="PotAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1185, 550)
-scale = Vector2(2, 2)
+position = Vector2(1131, 616)
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_ntuat")
 autoplay = "default"
 
@@ -62,13 +63,13 @@ unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 436.0
-offset_right = -45.0
-offset_bottom = 284.0
+offset_left = -4.0
+offset_top = 585.0
+offset_right = -50.0
+offset_bottom = 406.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8, 0.5)
+scale = Vector2(0.8, 0.25)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 3
