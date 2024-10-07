@@ -6,6 +6,7 @@ var recipes = {
 	BaseItem.ITEM_TYPE.HONEYCOMBS: BaseItem.ITEM_TYPE.HONEY_ESSENCE,
 	BaseItem.ITEM_TYPE.SAPHIRE: BaseItem.ITEM_TYPE.SAPHIRE_ESSENCE,
 	BaseItem.ITEM_TYPE.CHICKEN_FOOT: BaseItem.ITEM_TYPE.CHICKEN_ESSENCE,
+	BaseItem.ITEM_TYPE.FROG: BaseItem.ITEM_TYPE.FROG_ESSENCE,
 	BaseItem.ITEM_TYPE.BEETLE: BaseItem.ITEM_TYPE.BEETLE_ESSENCE,
 	BaseItem.ITEM_TYPE.POMEGRANATE: BaseItem.ITEM_TYPE.POMEGRANATE_ESSENCE,
 	BaseItem.ITEM_TYPE.HONEY: BaseItem.ITEM_TYPE.MEAD,
@@ -26,7 +27,7 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 		if self.current_item_steps <= 0:
 			var spawning_item_type = self.recipes[self.current_item_typ]
 			#items_future[y][x-1] = self.current_item_typ
-			self.spawn_item(x-1, y, items_future, spawning_item_type)
+			self.spawn_item(x+1, y, items_future, spawning_item_type)
 			self.current_item_steps = RESULT_STEPS
 			self.current_item_typ = null
 		else:
@@ -39,5 +40,5 @@ func step(x, y, items_future, entities_now, entities_future, level_structure):
 			if can_use_item:
 				self.current_item_typ = handling_item_type
 				self.current_item_steps = 4
-				handling_item.queue_free()
+			handling_item.queue_free()
 	move_to(x, y, entities_future)
