@@ -47,6 +47,7 @@ func create(width, height, level, entities, items, debug_mode: bool = false):
 func spawn_item(position: Vector2i, item_type: BaseItem.ITEM_TYPE):
 	var item_node = base_item_scene.instantiate()
 	item_node.position = (Vector2(position) + Vector2(0.5, 0.5)) * Globals.TILE_SIZE
+	item_node.item_type = item_type
 	add_child(item_node)
 	return item_node
 
