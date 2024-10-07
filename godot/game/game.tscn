@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqcslv3oe5tom"]
+[gd_scene load_steps=10 format=3 uid="uid://bqcslv3oe5tom"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_4aq2a"]
 [ext_resource type="Texture2D" uid="uid://dccxl82aac16m" path="res://game/wall.png" id="2_0qe6m"]
 [ext_resource type="Texture2D" uid="uid://bbs8tvfqt1eer" path="res://game/spider.png" id="4_uijuu"]
 [ext_resource type="Texture2D" uid="uid://bqfykde3h43ho" path="res://game/web.png" id="5_0kgdn"]
-[ext_resource type="PackedScene" uid="uid://d3grmpfghici7" path="res://game/construction/construction_state.tscn" id="5_52lca"]
 [ext_resource type="Texture2D" uid="uid://bfmhrdwj70crk" path="res://game/pot1.png" id="7_u3gbj"]
 [ext_resource type="PackedScene" uid="uid://c17krfs5denn3" path="res://game/ui/ui.tscn" id="8_7sqh0"]
 [ext_resource type="Texture2D" uid="uid://btj3kooqgemyp" path="res://game/pot2.png" id="8_kpw31"]
@@ -46,8 +45,6 @@ region_rect = Rect2(14, 4, 85, 79)
 [node name="SpiderSprite2D" type="Sprite2D" parent="BackgroundSprite2D"]
 position = Vector2(603, 91)
 texture = ExtResource("4_uijuu")
-
-[node name="ConstructionState" parent="." instance=ExtResource("5_52lca")]
 
 [node name="PotAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1131, 616)

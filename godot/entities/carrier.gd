@@ -40,17 +40,22 @@ func pickup(item):
 
 func swap(item_to_receive, other_swapper, initiated_on_this_entity:bool):
 	if initiated_on_this_entity:
+		print("swap second called with item: ", $CarriedItem.item_type, $CarriedItem.count, $CarriedItem.visible)
 		var item_to_send = {
 			item_type = $CarriedItem.item_type,
 			visible = $CarriedItem.visible
 		}
 
-		pickup(item_to_receive)
+		if item_to_receive.visible:
+			pickup(item_to_receive)
+		else:
+			pickup(null)
 
 		if item_to_send.visible:
 			return item_to_send
 		else:
 			return null
 	else:
+		print("swap first called with item: ", $CarriedItem.item_type, $CarriedItem.count, $CarriedItem.visible)
 		var item_received = other_swapper.swap($CarriedItem, self, true)
 		pickup(item_received)
