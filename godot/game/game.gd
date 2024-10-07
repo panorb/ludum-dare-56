@@ -32,7 +32,7 @@ func start_level(level: int):
 		current_level.queue_free()
 	# TODO Instantiate correct level
 	if level:
-		current_level = base_levels[level-1].instantiate()
+		current_level: LDTKLevel = base_levels[level-1].instantiate()
 	construction_state = get_node("ConstructionState")
 	construction_state.create(current_level)
 
