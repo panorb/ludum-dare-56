@@ -73,7 +73,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 3
 
-[node name="Ui" parent="CanvasLayer/UiContainer" instance=ExtResource("8_7sqh0")]
+[node name="SelectBoard" parent="CanvasLayer/UiContainer" instance=ExtResource("8_7sqh0")]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 
