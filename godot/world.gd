@@ -54,8 +54,8 @@ var level: int:
 @onready var _current_scene_node: Node = null
 
 func _ready():
-	self.sfx_sound_value = 0.0
-	self.music_sound_value = 0.0
+	self.sfx_sound_value = 80.0
+	self.music_sound_value = 80.0
 	self._on_show_main_menu()
 	TranslationServer.set_locale(LANGUAGE_ENGLISH)
 
