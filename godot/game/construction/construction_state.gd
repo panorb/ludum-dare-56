@@ -61,6 +61,6 @@ func create(level:LDTKLevel, left_top_position: Node2D, right_bottom_position: N
 	add_child(level)
 
 func create_simulation_state() -> SimulationState:
-	var sim_state = simulation_state.instantiate()
+	var sim_state:SimulationState = simulation_state.instantiate()
 	sim_state.create(_level_size[0], _level_size[1], _level, _level_entities + _player_entities, _level_items)
 	return sim_state

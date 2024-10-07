@@ -1,6 +1,8 @@
 class_name Entity
 extends Node2D
 
+var simulation_state : Node2D
+
 var actual_position = Vector2(0, 0)
 var target_position = Vector2(0, 0)
 

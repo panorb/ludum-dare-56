@@ -7,6 +7,16 @@ func _ready() -> void:
 
 func step(x, y, items_future, entities_now, entities_future, level_structure):
 	if items_future[y][x] != null:
-		var item = items_future[y][x]
-		item.throw()
+		var item:BaseItem = items_future[y][x]
+		if item.count == 1:
+			items_future[y][x] = null
+			items_future[y][x+1] = item
+			item.throw()
+		else:
+			item.count -= 1
+			items_future[y][x] = item
+			var thrown_item = item.clone()
+			thrown_item.count = 1
+			items_future[y-1][x] = thrown_item
+			thrown_item.throw();
 	move_to(x, y, entities_future)
