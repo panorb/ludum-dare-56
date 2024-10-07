@@ -1097,7 +1097,7 @@
 									"id": "V_String",
 									"params": ["CHICKEN_FOOT"]
 								}] },
-								{ "__identifier": "Count", "__type": "Int", "__value": 4, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
+								{ "__identifier": "Count", "__type": "Int", "__value": 1, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
