@@ -960,7 +960,7 @@
 							"px": [512,64],
 							"fieldInstances": [
 								{ "__identifier": "ItemType", "__type": "LocalEnum.ItemType", "__value": "HONEYCOMBS", "__tile": null, "defUid": 29, "realEditorValues": [] },
-								{ "__identifier": "Count", "__type": "Int", "__value": 3, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [3] }] }
+								{ "__identifier": "Count", "__type": "Int", "__value": 1, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							],
 							"__worldX": 512,
 							"__worldY": 64
