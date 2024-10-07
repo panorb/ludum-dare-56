@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://pgb8jrmjtwrs"]
+
+[ext_resource type="Script" path="res://entities/thrower.gd" id="1_bqboo"]
+[ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_ynv2s"]
+
+[node name="Dropper" type="Node2D" groups=["tickers"]]
+script = ExtResource("1_bqboo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_ynv2s")

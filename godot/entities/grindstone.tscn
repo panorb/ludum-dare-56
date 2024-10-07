@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bphlpe14md251"]
+
+[ext_resource type="Script" path="res://entities/thrower.gd" id="1_8oeqx"]
+[ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_blvyx"]
+
+[node name="Grindstone" type="Node2D" groups=["tickers"]]
+script = ExtResource("1_8oeqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_blvyx")

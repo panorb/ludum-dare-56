@@ -6,6 +6,9 @@ extends Control
 func update_witch_note(item_target_counts: Array, additional_info: String):
 	%AdditionalInfoLabel.text = additional_info
 	
+	update_counts(item_target_counts)
+
+func update_counts(item_target_counts: Array):
 	for child in grocery_items_container.get_children():
 		child.queue_free()
 	

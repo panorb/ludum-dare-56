@@ -11,7 +11,7 @@
 	"iid": "006d9850-73f0-11ef-9635-0938bd099517",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 46,
+	"nextUid": 47,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "LinearHorizontal",
@@ -912,6 +912,41 @@
 			]
 		},
 		{
+			"identifier": "Sink",
+			"uid": 46,
+			"tags": [],
+			"exportToToc": false,
+			"allowOutOfBounds": false,
+			"doc": null,
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"minWidth": null,
+			"maxWidth": null,
+			"minHeight": null,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#FFFFFF",
+			"renderMode": "Ellipse",
+			"showName": true,
+			"tilesetId": null,
+			"tileRenderMode": "FitInside",
+			"tileRect": null,
+			"uiTileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": []
+		},
+		{
 			"identifier": "Item",
 			"uid": 27,
 			"tags": [],
@@ -1112,8 +1147,8 @@
 			"type": "F_Int",
 			"isArray": true,
 			"canBeNull": false,
-			"arrayMinLength": 6,
-			"arrayMaxLength": 6,
+			"arrayMinLength": 5,
+			"arrayMaxLength": 5,
 			"editorDisplayMode": "Hidden",
 			"editorDisplayScale": 1,
 			"editorDisplayPos": "Above",
@@ -1220,14 +1255,7 @@
 					null,
 					null
 				] },
-				{ "__identifier": "EntityAvailableCounts", "__type": "Array<Int>", "__value": [1,1,2,1,0,0], "__tile": null, "defUid": 45, "realEditorValues": [
-					{ "id": "V_Int", "params": [1] },
-					{ "id": "V_Int", "params": [1] },
-					{ "id": "V_Int", "params": [2] },
-					{ "id": "V_Int", "params": [1] },
-					null,
-					null
-				] },
+				{ "__identifier": "EntityAvailableCounts", "__type": "Array<Int>", "__value": [1,1,2,1,0], "__tile": null, "defUid": 45, "realEditorValues": [ { "id": "V_Int", "params": [1] }, { "id": "V_Int", "params": [1] }, { "id": "V_Int", "params": [2] }, { "id": "V_Int", "params": [1] }, null ] },
 				{ "__identifier": "AdditionalInfo", "__type": "String", "__value": "To create frog essence you will have to throw the frogs into the still.", "__tile": null, "defUid": 39, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["To create frog essence you will have to throw the frogs into the still."]
@@ -1317,7 +1345,7 @@
 									"id": "V_String",
 									"params": ["CHICKEN_FOOT"]
 								}] },
-								{ "__identifier": "Count", "__type": "Int", "__value": 1, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "Count", "__type": "Int", "__value": 4, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
 							]
 						},
 						{
@@ -1387,6 +1415,20 @@
 								}] },
 								{ "__identifier": "ProductionTicks", "__type": "Int", "__value": 1, "__tile": null, "defUid": 41, "realEditorValues": [] }
 							]
+						},
+						{
+							"__identifier": "Sink",
+							"__grid": [12,8],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FFFFFF",
+							"iid": "3d3b16b0-73f0-11ef-a8e0-a37e4ba6ba87",
+							"width": 32,
+							"height": 32,
+							"defUid": 46,
+							"px": [384,256],
+							"fieldInstances": []
 						}
 					]
 				},

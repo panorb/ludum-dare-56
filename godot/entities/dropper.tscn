@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/thrower.gd" id="1_p8hcp"]
 [ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_182p8"]
 
-[node name="Thrower" type="Node2D" groups=["tickers"]]
+[node name="Dropper" type="Node2D" groups=["tickers"]]
 script = ExtResource("1_p8hcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

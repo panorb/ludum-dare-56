@@ -15,7 +15,8 @@ var _possible_entities = {
 	"Carrier": preload("res://entities/carrier.tscn"),
 	"Thrower": preload("res://entities/thrower.tscn"),
 	"Spawner": preload("res://entities/spawner.tscn"),
-	"Dropper": preload("res://entities/dropper.tscn")
+	"Dropper": preload("res://entities/dropper.tscn"),
+	"Sink": preload("res://entities/sink.tscn"),
 }
 
 signal level_constraints_update(item_target_counts: Array, entity_available_counts: Array, additional_info: String)

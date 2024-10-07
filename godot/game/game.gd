@@ -18,6 +18,8 @@ var running: bool = false
 @onready var level_right_bottom :=  %LevelRightBottomNode2D
 @onready var construction_state : ConstructionState = $ConstructionState
 
+var to_be_delivered : Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%SelectBoard.entity_pressed.connect(self._on_entity_pressed)
@@ -28,6 +30,7 @@ func _ready() -> void:
 
 func _on_level_constraints_update(item_target_counts: Array, entity_available_counts: Array, additional_info: String):
 	print("Additional Info:  " + additional_info)
+	to_be_delivered = item_target_counts
 	%GroceryList.update_witch_note(item_target_counts, additional_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,8 +49,6 @@ func start_level(level: int):
 	if level:
 		current_level = base_levels[level-1].instantiate()
 	construction_state.create(current_level, level_left_top, level_right_bottom)
-	
-	
 
 func start_simulation():
 	construction_state.hide()
