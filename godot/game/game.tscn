@@ -28,7 +28,7 @@ texture_filter = 1
 script = ExtResource("1_4aq2a")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.366595, 0.366595, 0.366595, 1)
+modulate = Color(0.281187, 0.281187, 0.281187, 1)
 texture_repeat = 2
 scale = Vector2(2, 2)
 texture = ExtResource("2_0qe6m")

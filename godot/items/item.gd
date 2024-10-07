@@ -8,7 +8,7 @@ var _processed_tick : int = -1
 var actual_position = Vector2(0, 0)
 @onready var tween : Tween = get_tree().create_tween()
 
-@onready var shader:ShaderMaterial = get_node("%Texture").material as ShaderMaterial
+# @onready var shader:ShaderMaterial = get_node("%Texture").material as ShaderMaterial
 
 func _process(delta: float) -> void:
 	pass
@@ -42,7 +42,7 @@ func step(x, y, items_now, items_future, level_structure):
 
 func move_to(x, y, items_future):
 	# items_future[y][x] = self
-	items_future[y][x].append(self)
+	items_future[y][x] = self
 	
 	# actual_position.x = position.x
 	#actual_position.y = position.y
