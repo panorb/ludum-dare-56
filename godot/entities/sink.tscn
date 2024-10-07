@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd7aanl35jrhe"]
 
-[ext_resource type="Script" path="res://entities/thrower.gd" id="1_4scyy"]
+[ext_resource type="Script" path="res://entities/sink.gd" id="1_27hvv"]
 [ext_resource type="Texture2D" uid="uid://cssgnbj4fjgc0" path="res://entities/sink.png" id="2_vvxcq"]
 
 [node name="Sink" type="Node2D" groups=["tickers"]]
-script = ExtResource("1_4scyy")
+script = ExtResource("1_27hvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -16)
 texture = ExtResource("2_vvxcq")

@@ -1288,20 +1288,6 @@
 					"entityInstances": [
 						{
 							"__identifier": "Carrier",
-							"__grid": [16,8],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#181425",
-							"iid": "58860710-73f0-11ef-9635-41f4b5edc12f",
-							"width": 32,
-							"height": 32,
-							"defUid": 14,
-							"px": [512,256],
-							"fieldInstances": []
-						},
-						{
-							"__identifier": "Carrier",
 							"__grid": [6,3],
 							"__pivot": [0,0],
 							"__tags": [],
@@ -1417,17 +1403,17 @@
 							]
 						},
 						{
-							"__identifier": "Sink",
-							"__grid": [12,8],
+							"__identifier": "Still",
+							"__grid": [16,8],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
-							"__smartColor": "#FFFFFF",
-							"iid": "3d3b16b0-73f0-11ef-a8e0-a37e4ba6ba87",
+							"__smartColor": "#3E8948",
+							"iid": "79de5330-73f0-11ef-b1cb-dd5b5de4929d",
 							"width": 32,
 							"height": 32,
-							"defUid": 46,
-							"px": [384,256],
+							"defUid": 34,
+							"px": [512,256],
 							"fieldInstances": []
 						}
 					]

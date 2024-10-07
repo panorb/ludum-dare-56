@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://pgb8jrmjtwrs"]
 
-[ext_resource type="Script" path="res://entities/thrower.gd" id="1_bqboo"]
-[ext_resource type="Texture2D" uid="uid://phaunf4xuqvw" path="res://entities/thrower.png" id="2_ynv2s"]
+[ext_resource type="Script" path="res://entities/still.gd" id="1_ja1nk"]
+[ext_resource type="Texture2D" uid="uid://dne64oruenerg" path="res://entities/still.png" id="2_wow6e"]
 
-[node name="Dropper" type="Node2D" groups=["tickers"]]
-script = ExtResource("1_bqboo")
+[node name="Still" type="Node2D" groups=["tickers"]]
+script = ExtResource("1_ja1nk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("2_ynv2s")
+texture = ExtResource("2_wow6e")
+offset = Vector2(16, 0)

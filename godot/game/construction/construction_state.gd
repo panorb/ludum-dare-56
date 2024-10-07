@@ -17,6 +17,8 @@ var _possible_entities = {
 	"Spawner": preload("res://entities/spawner.tscn"),
 	"Dropper": preload("res://entities/dropper.tscn"),
 	"Sink": preload("res://entities/sink.tscn"),
+	"Still": preload("res://entities/still.tscn"),
+	"Grindstone": preload("res://entities/grindstone.tscn")
 }
 
 signal level_constraints_update(item_target_counts: Array, entity_available_counts: Array, additional_info: String)
