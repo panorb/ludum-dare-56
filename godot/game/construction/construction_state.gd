@@ -16,7 +16,7 @@ var _possible_entities = {
 	"Thrower": preload("res://entities/thrower.tscn"),
 }
 
-func create(level:LDTKLevel):
+func create(level:LDTKLevel, left_top_position: Node2D, right_bottom_position: Node2D):
 	_level = level
 	_level_entities = []
 	_level_items = []
@@ -54,6 +54,10 @@ func create(level:LDTKLevel):
 	var tilemap = level.get_node("Structure")
 	
 	_level_size = tilemap.get_used_rect().size
+	
+	# Calculate distance of left top node and right bottom node for scale
+	var level_scale: float = left_top_position.position.distance_to(right_bottom_position.position)
+	
 	add_child(level)
 
 func create_simulation_state() -> SimulationState:
