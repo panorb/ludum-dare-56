@@ -38,16 +38,6 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 360)
 
-[node name="WebSprite2D" type="Sprite2D" parent="BackgroundSprite2D"]
-position = Vector2(597.5, 39.5)
-texture = ExtResource("5_0kgdn")
-region_enabled = true
-region_rect = Rect2(14, 4, 85, 79)
-
-[node name="SpiderSprite2D" type="Sprite2D" parent="BackgroundSprite2D"]
-position = Vector2(603, 91)
-texture = ExtResource("4_uijuu")
-
 [node name="ConstructionState" parent="." instance=ExtResource("5_52lca")]
 
 [node name="PotAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -90,3 +80,15 @@ position = Vector2(1242, 395)
 unique_name_in_owner = true
 stream = ExtResource("10_g8spg")
 autoplay = true
+
+[node name="WebSprite2D" type="Sprite2D" parent="."]
+position = Vector2(1195, 79)
+scale = Vector2(2, 2)
+texture = ExtResource("5_0kgdn")
+region_enabled = true
+region_rect = Rect2(14, 4, 85, 79)
+
+[node name="SpiderSprite2D" type="Sprite2D" parent="."]
+position = Vector2(1206, 182)
+scale = Vector2(2, 2)
+texture = ExtResource("4_uijuu")
