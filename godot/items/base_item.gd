@@ -13,6 +13,8 @@ enum ITEM_TYPE { HONEYCOMBS, SAPHIRE, FROG, CHICKEN_FOOT, BEETLE, POMEGRANATE, H
 
 @onready var sprite_container : Node2D = $Sprites
 
+@export var never_free : bool = false
+
 func update_displayed_item():
 	var texture_region : Rect2i
 	
@@ -28,6 +30,9 @@ func update_displayed_item():
 		if i >= count:
 			sprite_node.visible = false
 		sprite_node.region_rect = texture_region
+	
+	if not never_free and count == 0:
+		queue_free()
 
 func easing_function(x: float) -> float:
 	return x

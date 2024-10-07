@@ -1099,6 +1099,54 @@
 								}] },
 								{ "__identifier": "Count", "__type": "Int", "__value": 4, "__tile": null, "defUid": 30, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
 							]
+						},
+						{
+							"__identifier": "Carrier",
+							"__grid": [3,8],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#181425",
+							"iid": "4d06f5b0-73f0-11ef-b821-379be72a29b4",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [96,256],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "Carrier",
+							"__grid": [8,8],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#181425",
+							"iid": "4ddc4710-73f0-11ef-b821-35da98b1b329",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [256,256],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "Item",
+							"__grid": [2,6],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "24f60b00-73f0-11ef-b821-57be7f2cecc1",
+							"width": 32,
+							"height": 32,
+							"defUid": 27,
+							"px": [64,192],
+							"fieldInstances": [
+								{ "__identifier": "ItemType", "__type": "LocalEnum.ItemType", "__value": "POMEGRANATE", "__tile": null, "defUid": 29, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["POMEGRANATE"]
+								}] },
+								{ "__identifier": "Count", "__type": "Int", "__value": 1, "__tile": null, "defUid": 30, "realEditorValues": [] }
+							]
 						}
 					]
 				},
